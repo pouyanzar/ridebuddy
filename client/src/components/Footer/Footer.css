@@ -4,10 +4,15 @@
   position: fixed;
   bottom: 0;
   width: 100vw;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .footer-icon {
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 30px;
+  justify-content: space-around;
+  margin-top: 30px;  
+}
+
+.fas-purple {
+  color: purple;
 }
