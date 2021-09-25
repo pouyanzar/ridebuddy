@@ -1,0 +1,14 @@
+.navbar {
+  display: flex;
+  background-color: purple;
+  height: 12vh;
+  color: white;
+}
+.nav-logo {
+  margin: 10px;
+  font-size: 24px;
+  margin-left: 20px;
+}
+.profile-add {
+  display: flex;
+}
