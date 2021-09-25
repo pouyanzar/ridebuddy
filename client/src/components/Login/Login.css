@@ -1,0 +1,46 @@
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: purple;
+  color: white;
+  min-height: 100vh;
+  padding-top: 35vh;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-style: oblique;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+.input {
+  width: 200px;  
+  border: solid 1px white;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.field {
+  padding: 5px;
+  
+}
+
+.Button {
+  display: flex !important;
+  width: 250px;
+  justify-content: space-between !important;
+  padding: 20px;
+}
+
+.custom-btn {
+  background-color: white !important;
+  color: purple !important;
+  border:white !important;
+}
