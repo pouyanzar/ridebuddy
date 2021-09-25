@@ -1,0 +1,13 @@
+.footer {
+  background-color: thistle;
+  height: 12vh;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
+.footer-icon {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
