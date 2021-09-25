@@ -5,12 +5,12 @@
   background-color: purple;
   color: white;
   min-height: 100vh;
-  padding-top: 35vh;
+  padding-top: 8vh;
 }
 .logo {
   display: flex;
   align-items: center;
-  font-family: 'Montez', cursive;
+  font-family: 'Montez', cursive; 
 }
 
 .form {
