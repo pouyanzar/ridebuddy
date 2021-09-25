@@ -10,7 +10,7 @@
 .logo {
   display: flex;
   align-items: center;
-  font-style: oblique;
+  font-family: 'Montez', cursive;
 }
 
 .form {
