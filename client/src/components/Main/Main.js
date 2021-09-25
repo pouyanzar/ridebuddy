@@ -11,8 +11,6 @@ export default function Main() {
   return(
     
     <div>
-      <div> <Navbar /></div>
-      
       <div class="main">
         <form >
           <div className= "form">
@@ -24,7 +22,20 @@ export default function Main() {
           </div>
         </form>
       </div>
-      <div><Footer /></div>
+      <div className = "main-text">
+       <h1>Popular Trips</h1>
+       <h5>Toronto to Ottawa </h5>
+       <h5>Ottawa to Montreal</h5>
+       <h5>Toronto to Waterloo</h5>
+       <h5>Toronto to Guelph</h5>
+       <h1>Saved Trips</h1>
+       <h1>Hello</h1>  
+       <h1>Hello</h1>
+       <h1>Hello</h1>
+       <h1>Hello</h1>
+       <h1>Hello</h1>
+       <h1>Hello</h1>
+      </div>
     </div>  
   )
 }

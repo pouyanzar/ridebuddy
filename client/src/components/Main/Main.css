@@ -6,6 +6,7 @@
   color: white;
   height: 40vh;
   background-size: 100% 100%;
+  margin-top: 12vh;
 }
 .logo {
   display: flex;
@@ -31,4 +32,9 @@
 .field {
   padding: 5px;
   
+}
+
+.main-text {
+  display: flex;
+  flex-direction: column;
 }

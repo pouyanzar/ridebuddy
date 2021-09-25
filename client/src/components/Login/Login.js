@@ -10,7 +10,7 @@ export default function Login() {
     
     <div className = "login">
       <div className="logo">
-        <h1>RideBuddy</h1>
+       <img src="https://i.ibb.co/QdqMh6L/ridebuddy-logo.gif" alt="RidyBuddy" width="300" height="300"></img>
       </div>
       <div>  
         <form >
