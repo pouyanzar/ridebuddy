@@ -1,8 +1,6 @@
 import React from 'react';
 import './Chats.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
- 
 
 export default function Chats(props) {
   

@@ -1,0 +1,14 @@
+.profile-main{
+  margin-top: 12vh;
+}
+
+.profile-name-edit {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-picture {
+  width: 100vw;
+  height: 50vh;
+}
+

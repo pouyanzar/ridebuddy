@@ -1,6 +1,7 @@
 .main{
   display: flex;
   flex-direction: column;
+  justify-content:center;
   align-items: center;
   background-image: url("https://i.pinimg.com/originals/d4/3c/11/d43c11d76c7db33af616426597e88833.gif");
   color: white;
@@ -37,4 +38,10 @@
 .main-text {
   display: flex;
   flex-direction: column;
+}
+
+.search-button {
+  display: flex;
+  justify-content: center;
+  
 }

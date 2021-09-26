@@ -6,6 +6,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Chats from './components/Chats/Chats';
+import Profile from './components/Profile/Profile';
 
 function App() {
   const [token, setToken] = useState();
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/chats">
             <Chats name={"James"}/>
+          </Route>
+          <Route path="/profile">
+            <Profile />
           </Route>
         </Switch>
         <div><Footer /></div>
