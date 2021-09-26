@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS types CASCADE;
+
+-- Create trip types table
+CREATE TABLE types (
+  id SERIAL PRIMARY KEY NOT NULL,
+  type VARCHAR(50) NOT NULL
+);
