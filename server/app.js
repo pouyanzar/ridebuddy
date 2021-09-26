@@ -1,17 +1,19 @@
 const express = require('express');
+require('dotenv').config();
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const {Pool} = require('pg');
 
-// connet to db
+//connet to db
 const db = new Pool({
-  host: process.env.DB_host,
+  host: process.env.DB_HOST,
   user: process.env.DB_USER,
   port: process.env.DB_PORT,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME
 });
+
 db.connect();
 
 // import routes
