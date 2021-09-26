@@ -6,18 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Posts() {
   
   return(
-    
     <div className="posts">
-      <div>
-       <h1> Post a ride</h1>
-       <h1> Post a ride</h1>
-       <h1> Post a ride</h1>
-       <h1> Post a ride</h1>
-       <h1> Post a ride</h1>
-       <h1> Post a ride</h1>
+      <div className="add-posts border border-dark rounded">
+        <h1>Add a post</h1>
       </div>
-      <div>
-        Post a request
+      <div className="add-request border border-dark rounded">
+        <h1>Add a request</h1>
       </div>
     </div>  
   )
