@@ -11,8 +11,8 @@ import Posts from './components/Posts/Posts';
 
 function App() {
   const [token, setToken] = useState();
-
-  if(token) {
+  
+  if(!token) {
     return <Login setToken={setToken} />
   }
 
