@@ -4,15 +4,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const {Pool} = require('pg');
+const dbParams = require('./lib/db.js');
 
 //connet to db
-const db = new Pool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  port: process.env.DB_PORT,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME
-});
+const db = new Pool(dbParams);
 
 db.connect();
 
