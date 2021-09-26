@@ -8,7 +8,7 @@ function Navbar() {
       <div className = "nav-logo"><Link to="/"> <img src="https://i.ibb.co/CMS8p17/ridebuddy-logo.jpg" alt="ridebuddy" width="175" height="50"></img></Link></div>
       <div className = "profile-add">
         <div className="add-icon"><Link to="/profile"><img className="profile-pic" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""></img></Link></div>
-        <div className="profile"><Link to="/add"><i class="fas fa-plus-circle fa-2x fas-white"></i></Link></div>
+        <div className="profile"><Link to="/posts"><i class="fas fa-plus-circle fa-2x fas-white"></i></Link></div>
       </div>
     </div>
   );

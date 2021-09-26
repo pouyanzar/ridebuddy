@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Chats from './components/Chats/Chats';
 import Profile from './components/Profile/Profile';
+import Posts from './components/Posts/Posts';
 
 function App() {
   const [token, setToken] = useState();
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/posts">
+            <Posts />
           </Route>
         </Switch>
         <div><Footer /></div>
