@@ -1,7 +1,5 @@
 import React from 'react';
 import './Main.css';
-import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
  
@@ -11,7 +9,7 @@ export default function Main() {
   return(
     
     <div>
-      <div class="main">
+      <div className="main">
         <form >
           <div className= "form">
             <div className="field"><input  className= "input" type="text" placeholder="Origin"/></div>
