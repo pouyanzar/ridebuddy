@@ -19,7 +19,6 @@ export default function Profile() {
           <div><i class="fas fa-user-edit"></i></div> 
         </div>
         
-        <h5>DOB</h5>
         <h5>Email</h5>
         <h5>Phone</h5>
         <h5>Location</h5>

@@ -13,10 +13,12 @@ export default function Main() {
         <form >
           <div className= "form">
             <div className="field"><input  className= "input" type="text" placeholder="Origin"/></div>
+            <div>
             <div className="field"><input  className= "input" type="text" placeholder="Destination"/></div>
+            </div>
           </div>
           <div className="search-button">
-            <Button variant="primary rounded-pill" className="custom-btn" type="submit">Search</Button>
+            <Button variant="primary rounded-pill" className="custom-btn" type="submit"><i class="fas fa-search-location"></i></Button>
           </div>
         </form>
       </div>
