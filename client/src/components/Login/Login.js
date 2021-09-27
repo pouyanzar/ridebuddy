@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './Login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
+import { Cookies } from 'react-cookie';
  
 
 export default function Login(props) {
@@ -15,11 +16,11 @@ export default function Login(props) {
   const handleSubmit = async e => {
     e.preventDefault();
     if(username === user && password === pass) {
-      const token = {
+      const cookie = {
         username,
         password
       };
-      props.setToken(token);
+      props.handleCookies(cookie);
     }
   }
 

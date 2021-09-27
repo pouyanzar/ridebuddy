@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
+import { useCookies} from 'react-cookie';
 import Login from './components/Login/Login';
 import Main from './components/Main/Main';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -13,10 +14,27 @@ import Trip from './components/Posts/Trip';
 import Request from './components/Posts/Request';
 
 function App() {
-  const [token, setToken] = useState();
+  const [cookies, setCookie, removeCookie] = useCookies();
   
-  if(!token) {
-    return <Login setToken={setToken} />
+  const handleCookies = (handleCookies) => {
+    setCookie('user', handleCookies.username, { path: '/' });
+    setCookie('user_key', handleCookies.password, { path: '/' });
+  };
+
+  const removeHandle = () => {
+    removeCookie("user");
+    removeCookie("user_key");
+
+  };
+  
+  useEffect(() => {
+    // Update the document title using the browser API
+
+  },[cookies]);
+  
+  
+  if(!cookies['user']) {
+    return <Login handleCookies={handleCookies} />
   }
 
   return (
