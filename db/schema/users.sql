@@ -8,5 +8,6 @@ CREATE TABLE users (
   phone VARCHAR(50) NOT NULL,
   age SMALLINT NOT NULL,
   gender VARCHAR(20) NOT NULL,
-  password VARCHAR(50) NOT NULL
+  password VARCHAR(50) NOT NULL,
+  avatar TEXT NOT NULL
 );
