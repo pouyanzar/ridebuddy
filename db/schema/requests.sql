@@ -1,5 +1,4 @@
-DROP TABLE IF EXISTS req
-uests CASCADE;
+DROP TABLE IF EXISTS requests CASCADE;
 
 -- Create requests table
 CREATE TABLE requests (
