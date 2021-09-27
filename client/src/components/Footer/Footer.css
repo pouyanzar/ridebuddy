@@ -1,16 +1,15 @@
 .footer {
   background-color: grey;
-  height: 12vh;
+  height: 10vh;
   position: fixed;
   bottom: 0;
   width: 100vw;
-  border-radius: 20px 20px 0px 0px;
 }
 
 .footer-icon {
   display: flex;
   justify-content: space-around;
-  margin-top: 30px;  
+  margin: 15px; 
 }
 
 .fas-purple {

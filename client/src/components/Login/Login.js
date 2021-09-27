@@ -27,7 +27,7 @@ export default function Login(props) {
     
     <div className = "login">
       <div className="logo">
-       <img src="https://i.ibb.co/GRJhzFy/Untitled-design.gif" alt="RidyBuddy" width="250" height="150"></img>
+       <img src="https://i.ibb.co/PDXM0R7/Ride-Buddy.gif" alt="RidyBuddy" width="250" height="150"></img>
       </div>
       <div>  
         <form onSubmit={handleSubmit}>
