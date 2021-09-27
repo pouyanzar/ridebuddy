@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer';
 import Chats from './components/Chats/Chats';
 import Profile from './components/Profile/Profile';
 import Posts from './components/Posts/Posts';
+import Search from './components/Search/Search';
 
 function App() {
   const [token, setToken] = useState();
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/posts">
             <Posts />
+          </Route>
+          <Route path="/search">
+            <Search />
           </Route>
         </Switch>
         <div><Footer /></div>

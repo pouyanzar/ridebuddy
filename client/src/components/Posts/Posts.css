@@ -6,3 +6,23 @@
   color: black;
   margin-top: 12vh;
 }
+
+.add-posts {
+  display: flex;
+  background-color: rgb(231, 231, 231);
+  border-radius: 10px !important;
+  margin: 10px;
+  padding: 10px;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.post-detail{
+  padding:10px;
+}
+
+.arrow-circle-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

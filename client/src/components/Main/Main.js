@@ -2,6 +2,7 @@ import React from 'react';
 import './Main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
  
 
 export default function Main() {
@@ -18,7 +19,7 @@ export default function Main() {
             </div>
           </div>
           <div className="search-button">
-            <Button variant="primary rounded-pill" className="custom-btn" type="submit"><i class="fas fa-search-location"></i></Button>
+           <Link to="/search"> <Button variant="primary rounded-pill" className="custom-btn" type="submit"><i class="fas fa-search-location"></i></Button></Link>
           </div>
         </form>
       </div>
@@ -28,13 +29,6 @@ export default function Main() {
        <h5>Ottawa to Montreal</h5>
        <h5>Toronto to Waterloo</h5>
        <h5>Toronto to Guelph</h5>
-       <h1>Saved Trips</h1>
-       <h1>Hello</h1>  
-       <h1>Hello</h1>
-       <h1>Hello</h1>
-       <h1>Hello</h1>
-       <h1>Hello</h1>
-       <h1>Hello</h1>
       </div>
     </div>  
   )
