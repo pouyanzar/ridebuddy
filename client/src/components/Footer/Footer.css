@@ -1,5 +1,5 @@
 .footer {
-  background-color: thistle;
+  background-color: grey;
   height: 12vh;
   position: fixed;
   bottom: 0;
@@ -14,5 +14,5 @@
 }
 
 .fas-purple {
-  color: purple;
+  color: black;
 }

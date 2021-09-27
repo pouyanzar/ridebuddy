@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: purple;
+  background-color: black;
   color: white;
   min-height: 100vh;
-  padding-top: 8vh;
+  padding-top: 25vh;
 }
 .logo {
   display: flex;
@@ -41,7 +41,7 @@
 }
 
 .custom-btn {
-  background-color: white !important;
-  color: purple !important;
-  border:white !important;
+  background-color: rgba(217, 255, 0, 0.836) !important;
+  color:  black !important;
+  border: black !important;
 }
