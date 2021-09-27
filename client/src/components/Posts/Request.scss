@@ -1,0 +1,17 @@
+.trip {
+  margin: 5rem 1rem;
+  & form {
+    & .price{
+      margin: 0 0.5rem;
+    }
+    & h2{
+      text-align: center;
+    }
+    & button{
+      font-weight: bold;
+    }
+    & div{
+      text-align: center;
+    }
+  }
+}

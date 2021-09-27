@@ -7,11 +7,11 @@ export default function Footer() {
   
   return(
     <div>
-    <div class="footer">
-      <div class="footer-icon">
-       <div><Link to="/chats"><i class="fas fa-comments fa-2x fas-purple"></i></Link></div>
-       <div><Link to="/mytrips"><i class="fas fa-car-side fa-2x fas-purple"></i></Link></div>
-       <div><Link to="/settings"><i class="fas fa-bars fa-2x fas-purple"></i></Link></div>
+    <div className="footer">
+      <div className="footer-icon">
+       <div><Link to="/chats"><i className="fas fa-comments fa-2x fas-purple"></i></Link></div>
+       <div><Link to="/mytrips"><i className="fas fa-car-side fa-2x fas-purple"></i></Link></div>
+       <div><Link to="/settings"><i className="fas fa-bars fa-2x fas-purple"></i></Link></div>
       </div>
     </div> 
     </div> 

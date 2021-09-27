@@ -13,10 +13,10 @@ export default function Profile() {
         <img className="profile-picture" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="profile-pic"></img>
         
       </div>
-      <div class="border border-dark rounded">
+      <div className="border border-dark rounded">
         <div className="profile-name-edit">
           <div><h1>Saif Ali</h1></div>
-          <div><i class="fas fa-user-edit"></i></div> 
+          <div><i className="fas fa-user-edit"></i></div> 
         </div>
         
         <h5>Email</h5>

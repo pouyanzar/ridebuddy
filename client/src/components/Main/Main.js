@@ -19,7 +19,7 @@ export default function Main() {
             </div>
           </div>
           <div className="search-button">
-           <Link to="/search"> <Button variant="primary rounded-pill" className="custom-btn" type="submit"><i class="fas fa-search-location"></i></Button></Link>
+           <Link to="/search"> <Button variant="primary rounded-pill" className="custom-btn" type="submit"><i className="fas fa-search-location"></i></Button></Link>
           </div>
         </form>
       </div>

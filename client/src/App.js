@@ -9,6 +9,8 @@ import Chats from './components/Chats/Chats';
 import Profile from './components/Profile/Profile';
 import Posts from './components/Posts/Posts';
 import Search from './components/Search/Search';
+import Trip from './components/Posts/Trip';
+import Request from './components/Posts/Request';
 
 function App() {
   const [token, setToken] = useState();
@@ -36,6 +38,12 @@ function App() {
           </Route>
           <Route path="/search">
             <Search />
+          </Route>
+          <Route path="/trip">
+            <Trip />
+          </Route>
+          <Route path="/request">
+            <Request />
           </Route>
         </Switch>
         <div><Footer /></div>

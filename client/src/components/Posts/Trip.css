@@ -1,0 +1,20 @@
+.trip {
+  margin: 5rem 1rem;
+}
+
+.trip form .price {
+  margin: 0 0.5rem;
+}
+
+.trip form h2 {
+  text-align: center;
+}
+
+.trip form button {
+  font-weight: bold;
+}
+
+.trip form div {
+  text-align: center;
+}
+/*# sourceMappingURL=Trip.css.map */
