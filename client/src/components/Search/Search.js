@@ -26,30 +26,21 @@ export default function Search(props) {
   //Helper function to book a seat and update the spots
   const updateSeats = function(id){
     const newId = trip_id(id);
-    console.log('newId', newId);
-    console.log('id', id);
-    // const updateBook = {
-    //   ...book[newId],
-    //   seats: book[newId]['seats']-1
-    // }
 
-    // const updateTrip = {
-    //   ...book,
-    //   [trip_id(id)]: updateBook
-    // };
     book[newId] = {...book[newId], 'seats':book[newId]['seats']-1}
-    // setBook([...book])
-    console.log('leftout seats', book);
+    setBook([...book])
   }
-   //Helper function to book a seat and update the spots
+  //Helper function to book a seat and update the spots
   const booking = function(id) { 
     
-    updateSeats(id);
-   
+    updateSeats(id); 
   }
 
+  useEffect(() => {
+    
+  }, [book]);
 
-  const trip =  trips.map((trip) => {
+  const trip =  book.map((trip) => {
     return(
       <TripListItem 
         key={trip.id} 

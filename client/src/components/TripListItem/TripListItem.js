@@ -5,7 +5,7 @@ import "./TripListItem.css";
 export default function TripListItem(props) {
   
   return (
-   <li onClick = {props.booking}>
+   
     <div className='border border-dark triplistitem'>
       <div className='driver'>
         <img src="https://i.ibb.co/Gn1pxbw/driverpassenger-modified.png" alt=""></img>
@@ -17,12 +17,11 @@ export default function TripListItem(props) {
         <h6 ><i className="fas fa-chair"></i> {props.seats} </h6>
       </div>
       <div>
-        <form>
+        <form onClick = {props.booking}>
           <button type="button" className="btn btn-success book-now" data-toggle="button"> Book now! </button>
         </form>
       </div>
     </div>
-    </li>
   );
 }
 
