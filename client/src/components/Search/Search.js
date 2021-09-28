@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './Search.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TripListItem from '../TripListItem/TripListItem';
@@ -13,6 +13,42 @@ const trips = [
 
 export default function Search(props) {
   
+  const [book,setBook] = useState(trips);
+
+  //Helper function to book a seat and update the spots
+  const trip_id = function (id) {
+    for (const item in book) {
+      if(book[item]['id']===id){
+        return item;
+      }
+    }
+  }
+  //Helper function to book a seat and update the spots
+  const updateSeats = function(id){
+    const newId = trip_id(id);
+    console.log('newId', newId);
+    console.log('id', id);
+    // const updateBook = {
+    //   ...book[newId],
+    //   seats: book[newId]['seats']-1
+    // }
+
+    // const updateTrip = {
+    //   ...book,
+    //   [trip_id(id)]: updateBook
+    // };
+    book[newId] = {...book[newId], 'seats':book[newId]['seats']-1}
+    // setBook([...book])
+    console.log('leftout seats', book);
+  }
+   //Helper function to book a seat and update the spots
+  const booking = function(id) { 
+    
+    updateSeats(id);
+   
+  }
+
+
   const trip =  trips.map((trip) => {
     return(
       <TripListItem 
@@ -21,6 +57,7 @@ export default function Search(props) {
         seats= {trip.seats}
         price={trip.price}
         departure = {trip.departure} 
+        booking = {(event)=>booking(trip.id)}
       />)
   })
 
