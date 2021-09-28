@@ -32,7 +32,7 @@ export default function Search(props) {
   }
   //Helper function to book a seat and update the spots
   const booking = function(id) { 
-    
+    console.log('id', id);
     updateSeats(id); 
   }
 

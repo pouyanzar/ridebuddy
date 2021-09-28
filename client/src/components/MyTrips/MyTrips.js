@@ -16,13 +16,11 @@ export default function MyTrips(props) {
   const cancelBooking = function (id){
   
     const updatedTrips = myTripList.filter(x => x['id'] !== id) 
-    setMyTripList([...updatedTrips])
-    
+    setMyTripList([...updatedTrips])  
   }
   
   useEffect(() => {
-    // Update the document title using the browser API
-    console.log(myTripList)
+
   },[myTripList]);
 
   const trip =  myTripList.map((trip) => {
