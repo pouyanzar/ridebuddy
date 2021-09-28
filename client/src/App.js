@@ -12,6 +12,7 @@ import Posts from './components/Posts/Posts';
 import Search from './components/Search/Search';
 import Trip from './components/Posts/Trip';
 import Request from './components/Posts/Request';
+import MyTrips from './components/MyTrips/MyTrips';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies();
@@ -62,6 +63,9 @@ function App() {
           </Route>
           <Route path="/request">
             <Request />
+          </Route>
+          <Route path="/mytrips">
+            <MyTrips />
           </Route>
         </Switch>
         <div><Footer /></div>
