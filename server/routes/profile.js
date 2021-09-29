@@ -6,6 +6,6 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     res.send("root");
   });
-  
+  return router;
 };
 

@@ -6,5 +6,5 @@ module.exports = (db) => {
   router.get('/', (req, res) => {
     res.send('trips');
   });
-
+  return router;
 };
