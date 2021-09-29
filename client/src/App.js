@@ -17,9 +17,10 @@ import MyTrips from './components/MyTrips/MyTrips';
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies();
   
-  const handleCookies = (handleCookies) => {
-    setCookie('user', handleCookies.username, { path: '/' });
-    setCookie('user_key', handleCookies.password, { path: '/' });
+  const handleCookies = (data) => {
+    console.log(data.user_name);
+    setCookie('user', data.user_id, { path: '/' });
+    setCookie('user_name', data.user_name, { path: '/' });
   };
 
   const removeHandle = () => {

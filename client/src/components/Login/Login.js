@@ -3,25 +3,23 @@ import './Login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
 import { Cookies } from 'react-cookie';
+import axios from 'axios';
  
 
 export default function Login(props) {
   
-  const [username, setUserName] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   
-  const user = "saif"
-  const pass ="123"
-
   const handleSubmit = async e => {
     e.preventDefault();
-    if(username === user && password === pass) {
-      const cookie = {
-        username,
-        password
-      };
-      props.handleCookies(cookie);
-    }
+    const login = {email, password}
+
+    return axios.post(`/login`, login )
+      .then((data) => {
+        // console.log(data.data);
+        props.handleCookies(data.data);
+    })  
   }
 
   return(
@@ -33,8 +31,8 @@ export default function Login(props) {
       <div>  
         <form onSubmit={handleSubmit}>
           <div className= "form">
-            <div className="field"><input  className= "input" type="text" placeholder="Username"onChange={e => setUserName(e.target.value)}/></div>
-            <div className="field"><input  className= "input" type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/></div>
+            <div className="field"><input name="email" className= "input" type="email" placeholder="Username" onChange={e => setEmail(e.target.value)}/></div>
+            <div className="field"><input name="password" className= "input" type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/></div>
           </div> 
           <div className="Button">
             <Button variant="primary rounded-pill" className="custom-btn" type="submit">Login</Button>
