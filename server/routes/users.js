@@ -5,8 +5,8 @@ const router = express.Router();
 module.exports = (db) => {
   router.get('/', (req, res) => {
     db.query(`SELECT * FROM users`)
-      .then(({ rows: trips }) => {
-        res.json({ rows: trips })
+      .then(({ rows: users }) => {
+        res.json({ rows: users })
     });
   });
   return router;

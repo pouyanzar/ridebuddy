@@ -13,9 +13,13 @@ import Search from './components/Search/Search';
 import Trip from './components/Posts/Trip';
 import Request from './components/Posts/Request';
 import MyTrips from './components/MyTrips/MyTrips';
+import axios from 'axios';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies();
+  const [origin, setOrigin] = useState();
+  const [destination, setDestination] = useState();
+  const [searchTrip, setSearchTrip] = useState();
   
   const handleCookies = (data) => {
     setCookie('user_id', data.user_id, { path: '/' });
@@ -25,8 +29,17 @@ function App() {
   const removeHandle = () => {
     removeCookie("user_id");
     removeCookie("user_name");
-
   };
+
+  const handleSearch = (origin, destination) => {
+    console.log(origin);
+    console.log(destination);
+    const search = {origin, destination}
+    return axios.post(`/search`, search)
+      .then((data) => {
+        console.log(data);
+      })  
+  }
   
   useEffect(() => {
   
@@ -43,7 +56,7 @@ function App() {
         <div><Navbar /></div>
         <Switch>
           <Route exact path="/">
-            <Main />
+            <Main handleSearch = {handleSearch}/>
           </Route>
           <Route path="/chats">
             <Chats name={"James"}/>
@@ -55,7 +68,7 @@ function App() {
             <Posts />
           </Route>
           <Route path="/search">
-            <Search />
+            <Search searchTrip = {searchTrip} />
           </Route>
           <Route path="/trip">
             <Trip />

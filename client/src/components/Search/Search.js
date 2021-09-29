@@ -15,6 +15,8 @@ export default function Search(props) {
   
   const [book,setBook] = useState(trips);
 
+  console.log(props);
+
   //Helper function to book a seat and update the spots
   const trip_id = function (id) {
     for (const item in book) {

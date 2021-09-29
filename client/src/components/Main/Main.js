@@ -1,25 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+
  
 
-export default function Main() {
+export default function Main(props) {
   
-  return(
-    
+  const [origin, setOrigin] = useState();
+  const [destination, setDestination] = useState();
+
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    props.handleSearch(origin, destination);
+  }
+
+  return(  
     <div>
       <div className="main">
-        <form >
+        <form onSubmit={handleSubmit}>
           <div className= "form">
-            <div className="field"><input  className= "input" type="text" placeholder="Origin"/></div>
+            <div className="field"><input  className= "input" type="text" placeholder="Origin" onChange={e => setOrigin(e.target.value)}/></div>
             <div>
-            <div className="field"><input  className= "input" type="text" placeholder="Destination"/></div>
+            <div className="field"><input  className= "input" type="text" placeholder="Destination" onChange={e => setDestination(e.target.value)}/></div>
             </div>
           </div>
           <div className="search-button">
-           <Link to="/search"> <Button variant="primary rounded-pill" className="custom-btn" type="submit"><i className="fas fa-search-location"></i></Button></Link>
+            <Button variant="primary rounded-pill" className="custom-btn" type="submit"><i className="fas fa-search-location"></i></Button>
           </div>
         </form>
       </div>
