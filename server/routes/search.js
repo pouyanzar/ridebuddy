@@ -15,8 +15,6 @@ module.exports = (db) => {
       });
   });
 
-
-
   router.post("/", (req, res) => {
     const origin = req.body.origin;
     const destination = req.body.destination;

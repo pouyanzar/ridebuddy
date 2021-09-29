@@ -2,7 +2,7 @@ import React, { useState , useEffect } from 'react';
 import { useCookies} from 'react-cookie';
 import Login from './components/Login/Login';
 import Main from './components/Main/Main';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, useHistory  } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -20,7 +20,11 @@ function App() {
   const [origin, setOrigin] = useState();
   const [destination, setDestination] = useState();
   const [searchTrip, setSearchTrip] = useState();
+  let history = useHistory();
   
+
+
+
   const handleCookies = (data) => {
     setCookie('user_id', data.user_id, { path: '/' });
     setCookie('user_name', data.user_name, { path: '/' });
@@ -32,26 +36,32 @@ function App() {
   };
 
   const handleSearch = (origin, destination) => {
-    console.log(origin);
-    console.log(destination);
     const search = {origin, destination}
     return axios.post(`/search`, search)
       .then((data) => {
-        console.log(data);
-      })  
+        
+        setSearchTrip(data.data.rows); 
+       
+      }) 
   }
   
+
   useEffect(() => {
-  
+    
   },[cookies]);
-  
+
+  useEffect(() => {
+    history.push("/search");
+  },[searchTrip, history]);
+
+
   
   if(!cookies['user_id']) {
     return <Login handleCookies={handleCookies} />
   }
 
   return (
-    <Router>
+  //  <Router>
       <div>
         <div><Navbar /></div>
         <Switch>
@@ -82,7 +92,7 @@ function App() {
         </Switch>
         <div><Footer /></div>
      </div>
-    </Router>
+ //   </Router>
 
   );
 }
