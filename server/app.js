@@ -28,9 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // mount routes
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/profile', profileRoute);
+app.use('/users', usersRouter(db));
+app.use('/profile', profileRoute(db));
 app.use('/login', loginRoute(db));
-app.use('/signup', signupRoute);
+app.use('/signup', signupRoute(db));
 
 module.exports = app;
