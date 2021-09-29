@@ -18,24 +18,22 @@ function App() {
   const [cookies, setCookie, removeCookie] = useCookies();
   
   const handleCookies = (data) => {
-    console.log(data.user_name);
-    setCookie('user', data.user_id, { path: '/' });
+    setCookie('user_id', data.user_id, { path: '/' });
     setCookie('user_name', data.user_name, { path: '/' });
   };
 
   const removeHandle = () => {
-    removeCookie("user");
-    removeCookie("user_key");
+    removeCookie("user_id");
+    removeCookie("user_name");
 
   };
   
   useEffect(() => {
-    // Update the document title using the browser API
-
+  
   },[cookies]);
   
   
-  if(!cookies['user']) {
+  if(!cookies['user_id']) {
     return <Login handleCookies={handleCookies} />
   }
 
