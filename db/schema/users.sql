@@ -11,3 +11,4 @@ CREATE TABLE users (
   password VARCHAR(50) NOT NULL,
   avatar TEXT NOT NULL
 );
+

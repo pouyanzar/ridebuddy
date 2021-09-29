@@ -5,7 +5,7 @@ CREATE TABLE trips (
   id SERIAL PRIMARY KEY NOT NULL,
   rider_id INTEGER REFERENCES riders(id) ON DELETE CASCADE,
   departure TIMESTAMP NOT NULL,
-  arrival TIMESTAMP NOT NULL,
+  arrival TIMESTAMP NOT NULL, 
   price INTEGER NOT NULL,
   available_seats INTEGER NOT NULL,
   available_luggages INTEGER NOT NULL,
@@ -15,5 +15,4 @@ CREATE TABLE trips (
   color VARCHAR(10) NOT NULL,
   plate VARCHAR(10) NOT NULL,
   pic TEXT NOT NULL
-
 );

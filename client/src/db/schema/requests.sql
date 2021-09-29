@@ -8,3 +8,4 @@ CREATE TABLE requests (
   departure TIMESTAMP,
   description TEXT
 );
+
