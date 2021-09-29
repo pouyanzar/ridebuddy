@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/profile', profileRoute);
-app.use('/login', loginRoute);
+app.use('/login', loginRoute(db));
 app.use('/signup', signupRoute);
 
 module.exports = app;
