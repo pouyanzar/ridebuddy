@@ -22,9 +22,6 @@ function App() {
   const [searchTrip, setSearchTrip] = useState();
   let history = useHistory();
   
-
-
-
   const handleCookies = (data) => {
     setCookie('user_id', data.user_id, { path: '/' });
     setCookie('user_name', data.user_name, { path: '/' });
@@ -39,13 +36,10 @@ function App() {
     const search = {origin, destination}
     return axios.post(`/search`, search)
       .then((data) => {
-        
-        setSearchTrip(data.data.rows); 
-       
+        setSearchTrip(data.data.rows);       
       }) 
   }
   
-
   useEffect(() => {
     
   },[cookies]);
@@ -53,15 +47,12 @@ function App() {
   useEffect(() => {
     history.push("/search");
   },[searchTrip, history]);
-
-
-  
+ 
   if(!cookies['user_id']) {
     return <Login handleCookies={handleCookies} />
   }
 
   return (
-  //  <Router>
       <div>
         <div><Navbar /></div>
         <Switch>
@@ -91,8 +82,7 @@ function App() {
           </Route>
         </Switch>
         <div><Footer /></div>
-     </div>
- //   </Router>
+      </div>
 
   );
 }
