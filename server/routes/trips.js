@@ -4,7 +4,10 @@ const router = express.Router();
 module.exports = (db) => {
 
   router.get('/', (req, res) => {
-    res.send('trips');
+    db.query(`SELECT * FROM trips`)
+      .then(({ rows: trips }) => {
+        res.json({ rows: trips });
+      });
   });
   router.post('/trip', (req, res) => {
     const {
@@ -25,5 +28,6 @@ module.exports = (db) => {
       .then(data => res.send("successful!"))
       .catch(e => res.send().status().json({err: e.message}));
   });
+
   return router;
 };

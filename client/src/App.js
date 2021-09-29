@@ -17,24 +17,23 @@ import MyTrips from './components/MyTrips/MyTrips';
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies();
   
-  const handleCookies = (handleCookies) => {
-    setCookie('user', handleCookies.username, { path: '/' });
-    setCookie('user_key', handleCookies.password, { path: '/' });
+  const handleCookies = (data) => {
+    setCookie('user_id', data.user_id, { path: '/' });
+    setCookie('user_name', data.user_name, { path: '/' });
   };
 
   const removeHandle = () => {
-    removeCookie("user");
-    removeCookie("user_key");
+    removeCookie("user_id");
+    removeCookie("user_name");
 
   };
   
   useEffect(() => {
-    // Update the document title using the browser API
-
+  
   },[cookies]);
   
   
-  if(!cookies['user']) {
+  if(!cookies['user_id']) {
     return <Login handleCookies={handleCookies} />
   }
 
