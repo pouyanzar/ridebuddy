@@ -17,6 +17,7 @@ const usersRouter = require('./routes/users');
 const profileRoute = require('./routes/profile');
 const loginRoute = require('./routes/login');
 const signupRoute = require('./routes/signup');
+const tripsRoute = require('./routes/trips');
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use('/users', usersRouter(db));
 app.use('/profile', profileRoute(db));
 app.use('/login', loginRoute(db));
 app.use('/signup', signupRoute(db));
+app.use('/trips', tripsRoute(db));
 
 
 module.exports = app;
