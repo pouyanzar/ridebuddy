@@ -36,7 +36,8 @@ function App() {
     const search = {origin, destination}
     return axios.post(`/search`, search)
       .then((data) => {
-        setSearchTrip(data.data.rows);       
+        setSearchTrip(data.data.rows);   
+        history.push("/search");    
       }) 
   }
   
@@ -45,8 +46,8 @@ function App() {
   },[cookies]);
 
   useEffect(() => {
-    history.push("/search");
-  },[searchTrip, history]);
+    
+  },[searchTrip]);
  
   if(!cookies['user_id']) {
     return <Login handleCookies={handleCookies} />
