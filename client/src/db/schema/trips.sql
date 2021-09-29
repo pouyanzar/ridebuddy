@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS trips CASCADE;
 -- Create trips table
 CREATE TABLE trips (
   id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE, 
   origin VARCHAR(20) NOT NULL,
   destination VARCHAR(20) NOT NULL,
   departure TIMESTAMP NOT NULL,
