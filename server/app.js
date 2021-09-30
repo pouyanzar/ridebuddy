@@ -18,7 +18,7 @@ const profileRoute = require('./routes/profile');
 const loginRoute = require('./routes/login');
 const signupRoute = require('./routes/signup');
 const tripsRoute = require('./routes/trips');
-
+const requestRoute = require('./routes/requests');
 const app = express();
 
 app.use(logger('dev'));
@@ -34,6 +34,7 @@ app.use('/profile', profileRoute(db));
 app.use('/login', loginRoute(db));
 app.use('/signup', signupRoute(db));
 app.use('/trips', tripsRoute(db));
+app.use('/requests', requestRoute(db));
 
 
 module.exports = app;

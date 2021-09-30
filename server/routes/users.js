@@ -6,8 +6,8 @@ module.exports = (db) => {
   router.get('/', (req, res) => {
     db.query(`SELECT * FROM users`)
       .then(({ rows: trips }) => {
-        res.json({ rows: trips })
-    });
+        res.json({ rows: trips });
+      });
   });
   return router;
 };
