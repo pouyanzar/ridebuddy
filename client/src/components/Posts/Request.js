@@ -83,6 +83,7 @@ export default function Trip(props) {
           placeholder="Number of available seats"
           onChange={seatChangeHandler} 
         />
+        <label className="mt-2" htmlFor="description">Description</label>
         <textarea
           className='form-control'
           name='description'
