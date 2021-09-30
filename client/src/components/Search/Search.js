@@ -6,6 +6,8 @@ import TripListItem from '../TripListItem/TripListItem';
 export default function Search(props) {
   
   const [book,setBook] = useState(props.searchTrip);
+  const [origin, setOrigin] = useState(props.origin);
+  const [destination, setDestination] = useState(props.destination);
 
   //Helper function to book a seat and update the spots
   const trip_id = function (id) {
@@ -28,8 +30,12 @@ export default function Search(props) {
   }
 
   useEffect(() => {
-    
-  }, [book]);
+    props.handleSearch(origin, destination);
+    setBook(props.searchTrip);
+    console.log('Use effect running')
+  },[]);
+
+  console.log('refresh searchTrip', props.searchTrip);
 
   const trip =  book.map((trip) => {
     return(

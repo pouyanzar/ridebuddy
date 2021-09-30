@@ -19,7 +19,8 @@ function App() {
   const [cookies, setCookie, removeCookie] = useCookies();
   const [origin, setOrigin] = useState();
   const [destination, setDestination] = useState();
-  const [searchTrip, setSearchTrip] = useState();
+  const [searchTrip, setSearchTrip] = useState([]);
+  const [myTrips, setMyTrips] = useState([]);
   let history = useHistory();
   
   const handleCookies = (data) => {
@@ -36,7 +37,9 @@ function App() {
     const search = {origin, destination}
     return axios.post(`/search`, search)
       .then((data) => {
-        setSearchTrip(data.data.rows);   
+        setSearchTrip(data.data.rows); 
+        setOrigin(origin);
+        setDestination(destination);  
         history.push("/search");    
       }) 
   }
@@ -66,14 +69,41 @@ function App() {
         history.push("/search");    
       }) 
   }
+
+  const cancelBooking = function (trip_id){
   
+    return axios.delete(`/passengers/${trip_id}`)
+      .then(() => {  
+        setMyTrips(myTrips => myTrips.filter(x => x['id'] !== trip_id)) 
+        history.push("/mytrips");    
+      })   
+  }
+  
+  const searchMyTrips = function () {
+    console.log()
+  }
+
   useEffect(() => {
-    
+    const user_id = cookies.user_id;
+    console.log('getting trips cookies')
+    return axios.get(`/trips/${user_id}`)
+      .then((data) => {
+        setMyTrips(data.data.rows);  
+      }) 
   },[cookies]);
 
   useEffect(() => {
-    console.log('update in seats')
+    console.log('my trips', setMyTrips);
   },[searchTrip]);
+
+
+  
+  useEffect(() => {
+   if(cookies.user_id){
+     console.log('cookies')
+   }
+  },[]);
+
 
  
   if(!cookies['user_id']) {
@@ -97,7 +127,7 @@ function App() {
             <Posts />
           </Route>
           <Route path="/search">
-            <Search searchTrip = {searchTrip} booking = {booking} />
+            <Search searchTrip = {searchTrip} booking = {booking} handleSearch ={handleSearch} origin = {origin} destination = {destination}/>
           </Route>
           <Route path="/trip">
             <Trip />
@@ -106,7 +136,7 @@ function App() {
             <Request />
           </Route>
           <Route path="/mytrips">
-            <MyTrips />
+            <MyTrips  myTrips = {myTrips} cancelBooking ={cancelBooking}/>
           </Route>
         </Switch>
         <div><Footer /></div>

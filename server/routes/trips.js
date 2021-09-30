@@ -9,6 +9,18 @@ module.exports = (db) => {
         res.json({ rows: trips });
       });
   });
+
+  router.get('/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    db.query(`SELECT * FROM trips 
+    JOIN passengers ON trips.id = trip_id JOIN users ON users.id = trips.user_id
+    WHERE passengers.user_id = $1;
+    `, [id])
+      .then(({ rows: trips }) => {
+        res.json({ rows: trips });
+      });
+  });
+
   router.post('/trip', (req, res) => {
     const {
       origin,
@@ -29,6 +41,21 @@ module.exports = (db) => {
     db.query(`INSERT INTO Trips (origin, destination, departure, price, available_seats,available_luggages, make, model, year, color, plate, pic, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)`,[origin, destination, departure, price, availableSeats, availableLuggages, make, model, year, color, plate, pic, userId])
       .then(data => res.send("Your request successfully added!"))
       .catch(e => res.send({err: e.message}));
+  });
+
+
+  router.delete('/:user_id', (req, res) => {
+    const trip_id = req.body;
+    console.log(trip_id);
+    const user_id = parseInt(req.params.id);
+    console.log('user_id', user_id)
+    // db.query(`SELECT * FROM trips 
+    // JOIN passengers ON trips.id = trip_id JOIN users ON users.id = trips.user_id
+    // WHERE passengers.user_id = $1;
+    // `, [id])
+    //   .then(({ rows: trips }) => {
+    //     res.json({ rows: trips });
+    //   });
   });
 
   return router;

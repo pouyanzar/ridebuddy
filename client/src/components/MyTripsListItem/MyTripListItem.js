@@ -39,13 +39,13 @@ export default function MyTripsListItem(props) {
    
     <div className='border border-dark mytripslistitem'>
       <div className='driver'>
-        <img src="https://i.ibb.co/Gn1pxbw/driverpassenger-modified.png" alt=""></img>
+        <img className='driver-pic' src={props.avatar} alt=""></img>
         <h5 >{props.name}</h5>
       </div>
-      <div>
-        <h6 ><i className="far fa-calendar-alt"></i> {props.departure}</h6>
+      <div>  
+        <h6 >{props.origin} to {props.destination}</h6>
+        <h6 ><i className="far fa-calendar-alt"></i> {props.departure} </h6>
         <h6 ><i className="fas fa-coins"></i> {`$${props.price}`}</h6>
-        <h6 ><i className="fas fa-chair"></i> {props.seats} </h6>
       </div>
       <div>
         <form onClick = {cancelling}>
