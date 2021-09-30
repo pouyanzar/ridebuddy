@@ -10,8 +10,8 @@ export default function TripListItem(props) {
     setBooking(true);
   }
   const confirmBooking = function (){
-    props.booking();
     setBooking(false);
+    props.booking();
   }
   
   const cancelBooking = function (){

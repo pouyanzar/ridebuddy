@@ -40,14 +40,41 @@ function App() {
         history.push("/search");    
       }) 
   }
+
+  //Helper function to book a seat and update the spots
+  const trip_id = function (id) {
+    for (const item in searchTrip) {
+      if(searchTrip[item]['id']===id){
+          return item;
+      }
+    }
+  }
+  //Helper function to book a seat and update the spots
+  const updateSeats = function(id){
+    const newId = trip_id(id);
+    searchTrip[newId] = {...searchTrip[newId], 'seats':searchTrip[newId]['seats']-1}
+    setSearchTrip([...searchTrip])
+  }
+
+  const booking = function (id) {
+    updateSeats(id);
+    console.log('Apps', searchTrip[trip_id(id)]);
+    const tripToBeUpdated = searchTrip[trip_id(id)];
+    return axios.post(`/search/${id}`, tripToBeUpdated)
+      .then(() => {
+        //setSearchTrip(data.data.rows);   
+        history.push("/search");    
+      }) 
+  }
   
   useEffect(() => {
     
   },[cookies]);
 
   useEffect(() => {
-    
+    console.log('update in seats')
   },[searchTrip]);
+
  
   if(!cookies['user_id']) {
     return <Login handleCookies={handleCookies} />
@@ -70,7 +97,7 @@ function App() {
             <Posts />
           </Route>
           <Route path="/search">
-            <Search searchTrip = {searchTrip} />
+            <Search searchTrip = {searchTrip} booking = {booking} />
           </Route>
           <Route path="/trip">
             <Trip />
