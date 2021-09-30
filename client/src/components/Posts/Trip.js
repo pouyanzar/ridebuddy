@@ -70,7 +70,7 @@ export default function Trip(props) {
       userId: Number(document.cookie.charAt(8))
      }
     return axios.post('trips/trip', form)
-    .then(data => console.log(data))
+    .then(res => console.log(res.data))
     .catch(err => console.log(err))
   };
 
