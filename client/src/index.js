@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CookiesProvider } from "react-cookie";
 
 ReactDOM.render(
+  <Router>
   <CookiesProvider>
       <App />
-   </CookiesProvider>,
+   </CookiesProvider>
+   </Router>,
   document.getElementById('root')
 );
 

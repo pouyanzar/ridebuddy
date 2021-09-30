@@ -41,8 +41,8 @@ export default function TripListItem(props) {
    
     <div className='border border-dark triplistitem'>
       <div className='driver'>
-        <img src="https://i.ibb.co/Gn1pxbw/driverpassenger-modified.png" alt=""></img>
-        <h5 >{props.name}</h5>
+        <img className='driver-pic' src={props.avatar} alt=""></img>
+        <h6 >{props.name} </h6>
       </div>
       <div>
         <h6 ><i className="far fa-calendar-alt"></i> {props.departure}</h6>
