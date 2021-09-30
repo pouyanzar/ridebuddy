@@ -18,8 +18,9 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     const origin = req.body.origin;
     const destination = req.body.destination;
-    console.log('request received');
-    db.query(`SELECT * FROM trips
+    
+    db.query(`SELECT trips.id, users.name as rider, avatar, price, available_seats as seats, available_luggages as luggage, pic, departure FROM trips 
+      JOIN users ON users.id = user_id 
       WHERE origin = $1 AND destination = $2;
       `, [origin, destination])
       .then(({ rows: trips }) => {

@@ -13,7 +13,7 @@ const trips = [
 
 export default function Search(props) {
   
-  const [book,setBook] = useState(trips);
+  const [book,setBook] = useState(props.searchTrip);
 
   console.log(props.searchTrip);
 
@@ -48,6 +48,7 @@ export default function Search(props) {
         key={trip.id} 
         name= {trip.rider}
         seats= {trip.seats}
+        avatar = {trip.avatar}
         price={trip.price}
         departure = {trip.departure} 
         booking = {(event)=>booking(trip.id)}
