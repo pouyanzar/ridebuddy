@@ -70,7 +70,10 @@ export default function Trip(props) {
       userId: Number(document.cookie.charAt(8))
      }
     return axios.post('trips/trip', form)
-    .then(res => console.log(res.data))
+    .then(res => {
+      console.log(res.data);
+      e.target.reset();
+    })
     .catch(err => console.log(err))
   };
 
@@ -83,6 +86,7 @@ export default function Trip(props) {
           onChange={originChangeHandler} 
           className="form-control" 
           name="origin"
+          required
         >
           <option value="montreal">Montreal</option>
           <option value="ottawa">Ottawa</option>
@@ -93,6 +97,7 @@ export default function Trip(props) {
           onChange={destinationChangeHandler} 
           className="form-control" 
           name="destination"
+          required
         >
           <option value="montreal">Montreal</option>
           <option value="ottawa">Ottawa</option>
@@ -104,6 +109,7 @@ export default function Trip(props) {
           className="form-control-sm price" 
           type="number" 
           onChange={priceChangeHandler}
+          required
         />$
         <label className="mt-2" htmlFor="departure">Departure</label>
         <input 
@@ -112,6 +118,7 @@ export default function Trip(props) {
           className="form-control"
           placeholder="Departure Time" 
           onChange={departureChangeHandler}
+          required
         />
         <label className="mt-2" htmlFor="seat">Available Seats</label>
         <input 
@@ -120,6 +127,7 @@ export default function Trip(props) {
           className="form-control"
           placeholder="Number of available seats" 
           onChange={availableSeatsChangeHandler} 
+          required
         />
         <label className="mt-2" htmlFor="luggage">Available Luggage</label>
         <input 
@@ -128,6 +136,7 @@ export default function Trip(props) {
           className="form-control" 
           placeholder="How many luggages?" 
           onChange={availableLuggagesChangeHandler} 
+          required
         />
         <h2 className="mt-4">Vehicle information</h2>
         <label className="mt-2" htmlFor="make">Make</label>
@@ -137,6 +146,7 @@ export default function Trip(props) {
           className="form-control" 
           placeholder="e.g. Hyundai" 
           onChange={makeChangeHandler} 
+          required
         />
         <label className="mt-2" htmlFor="model">Model</label>
         <input 
@@ -145,6 +155,7 @@ export default function Trip(props) {
           className="form-control" 
           placeholder="e.g. Santa Fe" 
           onChange={modelChangeHandler} 
+          required
         />
         <label className="mt-2" htmlFor="year">Year</label>
         <input 
@@ -152,7 +163,8 @@ export default function Trip(props) {
           type="number" 
           className="form-control" 
           placeholder="YYYY" 
-          onChange={yearChangeHandler} 
+          onChange={yearChangeHandler}
+          required 
         />
         <label className="mt-2" htmlFor="color">Color</label>
         <input 
@@ -161,6 +173,7 @@ export default function Trip(props) {
           className="form-control" 
           placeholder="Vehicle color" 
           onChange={colorChangeHandler} 
+          required
         />
         <label className="mt-2" htmlFor="plate">Licence Plate</label>
         <input 
@@ -169,6 +182,7 @@ export default function Trip(props) {
           className="form-control"
           placeholder="Enter your licence plate" 
           onChange={plateChangeHandler} 
+          required
         />
         <label className="mt-2" htmlFor="pic">Vehicle Photo</label>
         <input 
@@ -177,6 +191,7 @@ export default function Trip(props) {
           className="form-control"
           placeholder="Enter your licence plate" 
           onChange={picChangeHandler} 
+          required
         />
         <div>
           <button className="btn btn-dark m-4" type="submit">Post the Ride!</button>

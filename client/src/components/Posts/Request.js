@@ -40,7 +40,10 @@ export default function Trip(props) {
       userId: Number(document.cookie.charAt(8))
     }
     axios.post('/requests/request', form)
-    .then(res => console.log(res.data))
+    .then(res => {
+      console.log(res.data)
+      e.target.reset();
+    })
     .catch(err => console.log(err))
   }
   return (
@@ -52,6 +55,7 @@ export default function Trip(props) {
           onChange={originChangeHandler} 
           className="form-control" 
           name="origin"
+          required
         >
           <option value="montreal">Montreal</option>
           <option value="ottawa">Ottawa</option>
@@ -62,6 +66,7 @@ export default function Trip(props) {
           onChange={destinationChangeHandler} 
           className="form-control" 
           name="destination"
+          required
         >
           <option value="montreal">Montreal</option>
           <option value="ottawa">Ottawa</option>
@@ -74,6 +79,7 @@ export default function Trip(props) {
           className="form-control"
           placeholder="Departure Time" 
           onChange={departureChangeHandler}
+          required
         />
         <label className="mt-2" htmlFor="seat">Required Seats</label>
         <input 
@@ -82,6 +88,7 @@ export default function Trip(props) {
           className="form-control"
           placeholder="Number of available seats"
           onChange={seatChangeHandler} 
+          required
         />
         <label className="mt-2" htmlFor="description">Description</label>
         <textarea
@@ -89,6 +96,7 @@ export default function Trip(props) {
           name='description'
           placeholder='describe about yourself and/or your trip'
           onChange={descriptionChangeHandler}
+          required
         >
         </textarea>
         <div>
