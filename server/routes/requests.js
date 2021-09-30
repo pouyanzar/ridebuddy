@@ -18,6 +18,7 @@ module.exports = (db) => {
     db.query(`INSERT INTO requests (origin, destination, required_seat, departure, description) VALUES ($1, $2, $3, $4, $5) RETURNING id`, [origin, destination, seats, departure, description])
       .then(data => {
         db.query(`INSERT INTO passengers (user_id, request_id) VALUES ($1, $2)`, [userId, data.rows[0].id]);
+        res.send("Your request successfully added!");
       })
       .catch(err => res.send(err));
   });
