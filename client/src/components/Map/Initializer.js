@@ -28,8 +28,7 @@ function Initializer() {
       
         navigator.geolocation.getCurrentPosition(success, error, options)
         // setTimeout(() => {
-        //   let i =0;
-        //   console.log('This will run after 1 second!' + i)
+        //   console.log('This will run after 1 second!')
         // }, 1000);
         // return () => clearTimeout(timer);
   
