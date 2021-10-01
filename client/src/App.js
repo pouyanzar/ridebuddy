@@ -19,8 +19,8 @@ import Initializer from './components/Map/Initializer';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies();
-  const [origin, setOrigin] = useState();
-  const [destination, setDestination] = useState();
+  const [origin, setOrigin] = useState("");
+  const [destination, setDestination] = useState("");
   const [searchTrip, setSearchTrip] = useState([]);
   const [user, setUser] = useState([]);
   const [myTrips, setMyTrips] = useState([]);
@@ -75,8 +75,16 @@ function App() {
     console.log('Apps', searchTrip[trip_id(id)]);
     const tripToBeUpdated = searchTrip[trip_id(id)];
     return axios.post(`/search/${id}`, tripToBeUpdated)
-      .then(() => {
-        //setSearchTrip(data.data.rows);   
+      .then(()=>{
+        const user_id = user.id;
+        const trip_id = id;
+        const reservation = {user_id, trip_id}
+        return axios.post(`/passengers`, reservation)
+        .then(()=>{
+          console.log('Made succesful changes in the passengers table')
+        })
+      })
+      .then(() => { 
         history.push("/search");    
       }) 
   }
@@ -93,7 +101,7 @@ function App() {
   }
   
   const searchMyTrips = function () {
-    console.log()
+    console.log('xyz')
   }
 
   useEffect(() => {
@@ -101,9 +109,10 @@ function App() {
     return axios.get(`/trips/${user_id}`)
       .then((data) => {
         setMyTrips(data.data.rows);
-      }) 
-      
+      })
+       
   },[cookies]);
+
  
   useEffect(() => {
     console.log('my trips', setMyTrips);
@@ -118,7 +127,7 @@ function App() {
         setUser(data.data.user);
       }) 
     }
-  },[]);
+  },[cookies]);
 
  
   if(!cookies['user_id']) {
@@ -151,7 +160,7 @@ function App() {
             <Request />
           </Route>
           <Route path="/mytrips">
-            <MyTrips  myTrips = {myTrips} cancelBooking ={cancelBooking}/>
+            <MyTrips  myTrips = {myTrips} setMyTrips = {setMyTrips} cancelBooking ={cancelBooking} userId = {cookies.user_id}/>
           </Route>
           <Route path="/tripTracker">
             <Initializer />

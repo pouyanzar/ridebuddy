@@ -14,5 +14,18 @@ module.exports = (db) => {
       });
   });
 
+  router.post('/', (req, res) => {
+    const user_id = parseInt(req.body.user_id);
+    const trip_id = parseInt(req.body.trip_id);
+    console.log('user_id',user_id);
+    console.log('trip_id', trip_id);
+    db.query(`INSERT INTO passengers (user_id, trip_id)
+    VALUES ($1, $2)`, [user_id, trip_id])
+      .then(() => {
+        res.send('successfull update');
+      });
+  });
+
+
   return router;
 };
