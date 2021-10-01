@@ -85,7 +85,7 @@ function App() {
 
   useEffect(() => {
     const user_id = cookies.user_id;
-    console.log('getting trips cookies')
+    console.log(user_id);
     return axios.get(`/trips/${user_id}`)
       .then((data) => {
         setMyTrips(data.data.rows);  
@@ -95,9 +95,7 @@ function App() {
   useEffect(() => {
     console.log('my trips', setMyTrips);
   },[searchTrip]);
-
-
-  
+ 
   useEffect(() => {
    if(cookies.user_id){
      console.log('cookies')
