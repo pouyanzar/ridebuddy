@@ -14,6 +14,8 @@ import Trip from './components/Posts/Trip';
 import Request from './components/Posts/Request';
 import MyTrips from './components/MyTrips/MyTrips';
 import axios from 'axios';
+import Map from './components/Map/Map';
+import Initializer from './components/Map/Initializer';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies();
@@ -149,6 +151,9 @@ function App() {
           </Route>
           <Route path="/mytrips">
             <MyTrips  myTrips = {myTrips} cancelBooking ={cancelBooking}/>
+          </Route>
+          <Route path="/tripTracker">
+            <Initializer />
           </Route>
         </Switch>
         <div><Footer /></div>

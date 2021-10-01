@@ -48,8 +48,8 @@ module.exports = (db) => {
     const trip_id = req.body;
     console.log(trip_id);
     const user_id = parseInt(req.params.id);
-    console.log('user_id', user_id)
-    // db.query(`SELECT * FROM trips 
+    console.log('user_id', user_id);
+    // db.query(`SELECT * FROM trips
     // JOIN passengers ON trips.id = trip_id JOIN users ON users.id = trips.user_id
     // WHERE passengers.user_id = $1;
     // `, [id])
