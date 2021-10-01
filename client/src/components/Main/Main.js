@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { useHistory } from 'react-router';
 import './Main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
@@ -32,13 +31,7 @@ export default function Main(props) {
           </div>
         </form>
       </div>
-      <div className = "main-text">
-       <h1>Popular Trips</h1>
-       <h5>Toronto to Ottawa </h5>
-       <h5>Ottawa to Montreal</h5>
-       <h5>Toronto to Waterloo</h5>
-       <h5>Toronto to Guelph</h5>
-      </div>
+
     </div>  
   )
 }
