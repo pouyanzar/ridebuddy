@@ -22,7 +22,6 @@ function Initializer() {
       setLat(crd.latitude);
       setZoom(9);
       setStart([crd.longitude, crd.latitude]);
-      console.log(start)
     }
     
     function error(err) {
@@ -39,7 +38,7 @@ function Initializer() {
         .then(res => setEnd(res.data.features[0].geometry.coordinates))
         .catch(err => console.log(err))
     },[])
-    if (start.length === 0) return <div>Getting user location</div>
+    if (start.length === 0) return <div>Getting Route from your location to ${destination}</div>
   return <div><Map start={start} lng={lng} lat={lat} zoom={zoom} endPoint={end} /></div>
 }
 
