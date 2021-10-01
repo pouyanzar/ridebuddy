@@ -1,12 +1,16 @@
 import Map from "./Map";
 import {useState, useEffect} from 'react';
+import axios from 'axios';
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
 function Initializer() {
+    mapboxgl.accessToken = 'pk.eyJ1IjoicG91eWFuMTIxIiwiYSI6ImNrdTJrNTI0ZjEya2EyeHA3YnlxbHNnaHgifQ.gSLfFKuoSfOkamoK8DKl2w';
     const [start, setStart] = useState([]);
     const [lng, setLng] = useState(-70.9);
     const [lat, setLat] = useState(42.35);
     const [zoom, setZoom] = useState(9);
-    const end = [-75.697189, 45.421532]
+    const [end, setEnd] = useState([])
+    let destination = "Montreal";
     const options = {
       enableHighAccuracy: true,
       timeout: 5000,
@@ -31,8 +35,9 @@ function Initializer() {
         //   console.log('This will run after 1 second!')
         // }, 1000);
         // return () => clearTimeout(timer);
-  
-      
+        axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${destination}.json?access_token=${mapboxgl.accessToken}`)
+        .then(res => setEnd(res.data.features[0].geometry.coordinates))
+        .catch(err => console.log(err))
     },[])
     if (start.length === 0) return <div>Getting user location</div>
   return <div><Map start={start} lng={lng} lat={lat} zoom={zoom} endPoint={end} /></div>
