@@ -15,11 +15,8 @@ export default function Login(props) {
     e.preventDefault();
     const login = {email, password}
 
-    return axios.post(`/login`, login )
-      .then((data) => {
-        // console.log(data.data);
-        props.handleCookies(data.data);
-    })  
+    props.handleCookies(login);
+
   }
 
   return(

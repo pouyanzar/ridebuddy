@@ -20,12 +20,21 @@ function App() {
   const [origin, setOrigin] = useState();
   const [destination, setDestination] = useState();
   const [searchTrip, setSearchTrip] = useState([]);
+  const [user, setUser] = useState([]);
   const [myTrips, setMyTrips] = useState([]);
   let history = useHistory();
   
   const handleCookies = (data) => {
-    setCookie('user_id', data.user_id, { path: '/' });
-    setCookie('user_name', data.user_name, { path: '/' });
+    
+    return axios.post(`/login`, data )
+    .then((data) => {    
+      const user = data.data.user;
+      if(user.id) {
+        setCookie('user_id', user.id, { path: '/' });
+        setCookie('user_name', user.name, { path: '/' });
+        setUser(user);
+      }
+    })  
   };
 
   const removeHandle = () => {
@@ -85,21 +94,26 @@ function App() {
 
   useEffect(() => {
     const user_id = cookies.user_id;
-    console.log(user_id);
     return axios.get(`/trips/${user_id}`)
       .then((data) => {
-        setMyTrips(data.data.rows);  
+        setMyTrips(data.data.rows);
       }) 
+      
   },[cookies]);
-
+ 
   useEffect(() => {
     console.log('my trips', setMyTrips);
   },[searchTrip]);
  
   useEffect(() => {
-   if(cookies.user_id){
-     console.log('cookies')
-   }
+   
+    const user_id = cookies.user_id;
+    if(user_id){
+      return axios.get(`/login/${user_id}`)
+      .then((data) => {
+        setUser(data.data.user);
+      }) 
+    }
   },[]);
 
 
@@ -110,7 +124,7 @@ function App() {
 
   return (
       <div>
-        <div><Navbar /></div>
+        <div><Navbar user={user} /></div>
         <Switch>
           <Route exact path="/">
             <Main handleSearch = {handleSearch}/>
@@ -119,7 +133,7 @@ function App() {
             <Chats name={"James"}/>
           </Route>
           <Route path="/profile">
-            <Profile />
+            <Profile user={user} />
           </Route>
           <Route path="/posts">
             <Posts />

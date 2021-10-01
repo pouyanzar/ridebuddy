@@ -4,24 +4,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
  
 
-export default function Profile() {
+export default function Profile(props) {
   
+  const user = {...props}
+
+  console.log('profile props', user.user.id);
+
   return(
     
     <div className="profile-main">
       <div >
-        <img className="profile-picture" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="profile-pic"></img>
+        <img className="profile-picture" src={user.user.avatar} alt="profile-pic"></img>
         
       </div>
-      <div className="border border-dark rounded">
+      <div className="border border-dark rounded profile-info">
         <div className="profile-name-edit">
-          <div><h1>Saif Ali</h1></div>
+          <div><h1>{user.user.name}</h1></div>
           <div><i className="fas fa-user-edit"></i></div> 
         </div>
         
-        <h5>Email</h5>
-        <h5>Phone</h5>
-        <h5>Location</h5>
+        <h5>Age : {user.user.age}</h5>
+        <h5>Email : {user.user.email}</h5>
+        <h5>Phone : {user.user.phone}</h5>
+       
       </div>
     </div>  
   )
