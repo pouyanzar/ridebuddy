@@ -43,20 +43,5 @@ module.exports = (db) => {
       .catch(e => res.send({err: e.message}));
   });
 
-
-  router.delete('/:user_id', (req, res) => {
-    const trip_id = req.body;
-    console.log(trip_id);
-    const user_id = parseInt(req.params.id);
-    console.log('user_id', user_id)
-    // db.query(`SELECT * FROM trips 
-    // JOIN passengers ON trips.id = trip_id JOIN users ON users.id = trips.user_id
-    // WHERE passengers.user_id = $1;
-    // `, [id])
-    //   .then(({ rows: trips }) => {
-    //     res.json({ rows: trips });
-    //   });
-  });
-
   return router;
 };
