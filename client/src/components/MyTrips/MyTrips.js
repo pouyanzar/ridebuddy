@@ -11,14 +11,15 @@ export default function MyTrips(props) {
   const trip =  props.myTrips.map((trip) => {
     return(
       <MyTripsListItem
-        key={trip.id} 
+        key={trip.pass_id} 
         name = {trip.name}
         destination = {trip.destination}
         avatar = {trip.avatar}
         price = {trip.price}
         departure = {trip.departure}
         origin = {trip.origin}
-        cancelBooking = {(event)=>props.cancelBooking(trip.id)}
+        pass_id = {trip.pass_id}
+        cancelBooking = {(event)=>props.cancelBooking(trip.pass_id)}
       />)
   })
 

@@ -79,12 +79,14 @@ function App() {
       }) 
   }
 
-  const cancelBooking = function (trip_id){
-  
-    return axios.delete(`/passengers/${trip_id}`)
+  const cancelBooking = function (pass_id){
+    console.log('pass_id', pass_id)
+    return axios.delete(`/passengers/${pass_id}`)
       .then(() => {  
-        setMyTrips(myTrips => myTrips.filter(x => x['id'] !== trip_id)) 
-        history.push("/mytrips");    
+        setMyTrips(myTrips => myTrips.filter(x => x['pass_id'] !== pass_id)) 
+      })
+      .then(()=>{
+        history.push("/mytrips");  
       })   
   }
   
@@ -115,7 +117,6 @@ function App() {
       }) 
     }
   },[]);
-
 
  
   if(!cookies['user_id']) {

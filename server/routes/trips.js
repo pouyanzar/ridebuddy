@@ -12,9 +12,9 @@ module.exports = (db) => {
 
   router.get('/:id', (req, res) => {
     const id = parseInt(req.params.id);
-    db.query(`SELECT * FROM trips 
+    db.query(`SELECT passengers.id as pass_id, origin, destination, departure, avatar, pic, trip_id, name, price FROM trips 
     JOIN passengers ON trips.id = trip_id JOIN users ON users.id = trips.user_id
-    WHERE passengers.user_id = $1;
+    WHERE passengers.user_id = $1
     `, [id])
       .then(({ rows: trips }) => {
         res.json({ rows: trips });
