@@ -3,7 +3,6 @@ import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-load
 import {useEffect, useRef } from 'react';
 import './Map.css';
 function Map(props) {
-  mapboxgl.accessToken = 'pk.eyJ1IjoicG91eWFuMTIxIiwiYSI6ImNrdTJrNTI0ZjEya2EyeHA3YnlxbHNnaHgifQ.gSLfFKuoSfOkamoK8DKl2w';
   const {start, lng, lat, zoom, endPoint} = props;
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -17,6 +16,7 @@ function Map(props) {
     zoom: zoom
     });
   },[]);
+  
   
   // create a function to make a directions request
   async function getRoute() {
@@ -71,7 +71,30 @@ function Map(props) {
       // make an initial directions request that
       // starts and ends at the same location
       getRoute();
-
+      map.current.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+      map.current.addSource('dot-point', {
+        'type': 'geojson',
+        'data': {
+        'type': 'FeatureCollection',
+        'features': [
+        {
+        'type': 'Feature',
+        'geometry': {
+        'type': 'Point',
+        'coordinates': start // icon position [lng, lat]
+        }
+        }
+        ]
+        }
+        });
+        map.current.addLayer({
+          'id': 'layer-with-pulsing-dot',
+          'type': 'symbol',
+          'source': 'dot-point',
+          'layout': {
+          'icon-image': 'pulsing-dot'
+          }
+          });
       // Add starting point to the map
       map.current.addLayer({
         id: 'point',
