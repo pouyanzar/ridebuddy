@@ -29,11 +29,9 @@ function Initializer() {
     }
     useEffect(() => {
       
-        navigator.geolocation.getCurrentPosition(success, error, options)
-        // setTimeout(() => {
-        //   console.log('This will run after 1 second!')
-        // }, 1000);
-        // return () => clearTimeout(timer);
+      
+      navigator.geolocation.getCurrentPosition(success, error, options)
+        
         axios.get(`/tripTracker/${destination}`)
         .then(res => setEnd(res.data))
         .catch(err => console.log(err))
