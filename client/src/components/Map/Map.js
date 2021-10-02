@@ -4,7 +4,7 @@ import {useEffect, useRef } from 'react';
 import './Map.css';
 
 function Map(props) {
-  
+
   const {start, lng, lat, zoom, endPoint} = props;
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -67,14 +67,16 @@ function Map(props) {
         }
       });
     }
-  }
-
+  };
+  
   useEffect(() => {
-
+    
     map.current.on('load', () => {
       // make an initial directions request that
       // starts and ends at the same location
-      getRoute();
+      
+      
+      getRoute()
 
       // Add starting point to the map
       map.current.addLayer({
@@ -143,9 +145,7 @@ function Map(props) {
           }
         });
       }
-    });
-    getRoute(endPoint);
-    
+    }); 
   },[])
   
   return (
