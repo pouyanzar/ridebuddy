@@ -2,8 +2,9 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import {useEffect, useRef } from 'react';
 import './Map.css';
+
 function Map(props) {
-  mapboxgl.accessToken = 'pk.eyJ1IjoicG91eWFuMTIxIiwiYSI6ImNrdTJrNTI0ZjEya2EyeHA3YnlxbHNnaHgifQ.gSLfFKuoSfOkamoK8DKl2w';
+  
   const {start, lng, lat, zoom, endPoint} = props;
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -24,9 +25,12 @@ function Map(props) {
     // an arbitrary start will always be the same
     // only the end or destination will change
     
-    const query = await fetch(
-      `https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${endPoint[0]},${endPoint[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
-      { method: 'GET' }
+    const query = await fetch(`/tripTracker`,
+      { 
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({start, endPoint}),
+        method: 'POST' 
+      }
     );
     const json = await query.json();
     const data = json.routes[0];
