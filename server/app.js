@@ -21,7 +21,7 @@ const tripsRoute = require('./routes/trips');
 const requestRoute = require('./routes/requests');
 const searchRoute = require('./routes/search');
 const passengerRoute = require('./routes/passengers');
-
+const tripTrackerRoute = require('./routes/tripTracker');
 const app = express();
 
 app.use(logger('dev'));
@@ -40,6 +40,6 @@ app.use('/trips', tripsRoute(db));
 app.use('/requests', requestRoute(db));
 app.use('/search', searchRoute(db));
 app.use('/passengers', passengerRoute(db));
-
+app.use('/tripTracker', tripTrackerRoute(db));
 
 module.exports = app;

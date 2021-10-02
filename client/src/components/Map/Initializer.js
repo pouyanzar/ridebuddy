@@ -29,13 +29,11 @@ function Initializer() {
     }
     useEffect(() => {
       
-        navigator.geolocation.getCurrentPosition(success, error, options)
-        // setTimeout(() => {
-        //   console.log('This will run after 1 second!')
-        // }, 1000);
-        // return () => clearTimeout(timer);
-        axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${destination}.json?access_token=${mapboxgl.accessToken}`)
-        .then(res => setEnd(res.data.features[0].geometry.coordinates))
+      
+      navigator.geolocation.getCurrentPosition(success, error, options)
+        
+        axios.get(`/tripTracker/${destination}`)
+        .then(res => setEnd(res.data))
         .catch(err => console.log(err))
     },[])
     if (start.length === 0) return <div>Getting Route from your location to ${destination}</div>
