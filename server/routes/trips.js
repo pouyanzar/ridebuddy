@@ -7,7 +7,8 @@ module.exports = (db) => {
     db.query(`SELECT * FROM trips`)
       .then(({ rows: trips }) => {
         res.json({ rows: trips });
-      });
+      })
+      .catch(e => res.send({err: e.message}));
   });
 
   router.get('/:id', (req, res) => {
@@ -18,7 +19,8 @@ module.exports = (db) => {
     `, [id])
       .then(({ rows: trips }) => {
         res.json({ rows: trips });
-      });
+      })
+      .catch(e => res.send({err: e.message}));
   });
 
   router.post('/trip', (req, res) => {
@@ -43,20 +45,18 @@ module.exports = (db) => {
       .catch(e => res.send({err: e.message}));
   });
 
+  router.post('/:id', (req, res) => {
+    const trip_id = parseInt(req.params.id);
 
-  router.delete('/:user_id', (req, res) => {
-    const trip_id = req.body;
-    console.log(trip_id);
-    const user_id = parseInt(req.params.id);
-    console.log('user_id', user_id);
-    // db.query(`SELECT * FROM trips
-    // JOIN passengers ON trips.id = trip_id JOIN users ON users.id = trips.user_id
-    // WHERE passengers.user_id = $1;
-    // `, [id])
-    //   .then(({ rows: trips }) => {
-    //     res.json({ rows: trips });
-    //   });
+    db.query(`UPDATE trips SET available_seats = available_seats + 1
+    WHERE trips.id = $1`, [trip_id])
+      .then(() => {
+        res.send('successfull update');
+      })
+      .catch(e => res.send({err: e.message}));
+      
   });
+
 
   return router;
 };

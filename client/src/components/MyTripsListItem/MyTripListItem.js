@@ -9,8 +9,8 @@ export default function MyTripsListItem(props) {
   const cancelling = function (){
     setCancel(true);
   }
-  const confirmCancelling = function (id){
-    props.cancelBooking(id);
+  const confirmCancelling = function (pass_id, trip_id){
+    props.cancelBooking(pass_id, trip_id);
   }
   
   const cancelCancelling = function (){
@@ -24,7 +24,7 @@ export default function MyTripsListItem(props) {
         <h6 >Are you sure you want to cancel your booking with {props.name} </h6>
       </div>
       <div>
-        <form onClick = {()=> confirmCancelling(props.pass_id)}>
+        <form onClick = {()=> confirmCancelling(props.pass_id, props.trip_id)}>
           <button type="button" className="btn btn-danger cancel-now" data-toggle="button"> Confirm </button>
         </form>
         <form onClick = {cancelCancelling}>
