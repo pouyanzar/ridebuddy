@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import './Main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
-
- 
+import PopularTrips from '../PopularTrips/PopularTrips'; 
 
 export default function Main(props) {
 
@@ -31,7 +30,9 @@ export default function Main(props) {
           </div>
         </form>
       </div>
-
+      <div className="popular-trips">
+          <PopularTrips />
+      </div>
     </div>  
   )
 }

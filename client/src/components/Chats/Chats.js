@@ -1,30 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Chats.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ChatEngine, getOrCreateChat } from 'react-chat-engine'
 
-export default function Chats(props) {
-  
-  return(
-    
-    <div className="chat-main">
-      <h1> Pouyan</h1>
-      <h1> James</h1>
-      <h1> Steve</h1>
-      <h1> Rahul</h1>
-      <h1> Sarah</h1>
-      <h1> Anthony</h1>
-      <h1> Emerson</h1>
-      <h1> Shahrukh</h1>
-      <h1> {props.name}</h1>
-      <h1> Rathod</h1>
-      <h1> Virat Kohli</h1>
-      <h1> Akshay Kumar</h1>
-      <h1> Jonathan</h1>
-      <h1> Vicky Kaushal</h1>
-      <h1> Manpreet Toor</h1>
-      <h1> Mickey Singh</h1>
-      <h1> Shahrukh Khan</h1>
-    </div>    
+const DirectChatPage = () => {
+	const [username, setUsername] = useState('')
 
-  )
+	function createDirectChat(creds) {
+		getOrCreateChat(
+			creds,
+			{ is_direct_chat: true, usernames: [username] },
+			() => setUsername('')
+		)
+	}
+
+	function renderChatForm(creds) {
+		return (
+			<div>
+				<input 
+					placeholder='Username' 
+					value={username} 
+					onChange={(e) => setUsername(e.target.value)} 
+				/>
+				<button onClick={() => createDirectChat(creds)}>
+					Create
+				</button>
+			</div>
+		)
+	}
+
+	return (
+		<ChatEngine
+    height='90vh'
+    projectID='ffeaa6c1-7930-43c5-b22c-e1450be2b51d'
+    userName='binishali'
+    userSecret='ridebuddy'
+		/>
+	)
 }
+
+export default DirectChatPage;
