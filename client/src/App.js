@@ -89,11 +89,18 @@ function App() {
       }) 
   }
 
-  const cancelBooking = function (pass_id){
+  const cancelBooking = function (pass_id, trip_id){
     console.log('pass_id', pass_id)
+    console.log('trip_id', trip_id)
     return axios.delete(`/passengers/${pass_id}`)
       .then(() => {  
         setMyTrips(myTrips => myTrips.filter(x => x['pass_id'] !== pass_id)) 
+      })
+      .then(() => {  
+        return axios.post(`/trips/${trip_id}`)
+        .then(() => {  
+          console.log('succsefful seat update')  
+        })
       })
       .then(()=>{
         history.push("/mytrips");  
