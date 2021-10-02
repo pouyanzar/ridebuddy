@@ -3,9 +3,11 @@ import './Chats.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ChatEngine, getOrCreateChat } from 'react-chat-engine'
 
-const DirectChatPage = () => {
-	const [username, setUsername] = useState('')
+const DirectChatPage = (props) => {
+	const [username, setUsername] = useState(props.messageTo)
 
+	console.log(props.messageTo)
+	
 	function createDirectChat(creds) {
 		getOrCreateChat(
 			creds,
@@ -31,10 +33,11 @@ const DirectChatPage = () => {
 
 	return (
 		<ChatEngine
-    height='90vh'
+		height='90vh'
     projectID='ffeaa6c1-7930-43c5-b22c-e1450be2b51d'
-    userName='binishali'
+    userName='Saif Ali'
     userSecret='ridebuddy'
+		renderNewChatForm={(creds) => renderChatForm(creds)}
 		/>
 	)
 }
