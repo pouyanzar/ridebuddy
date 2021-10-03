@@ -105,6 +105,7 @@ function Map(props) {
     const json = await query.json();
     const data = json.routes[0];
     const route = data.geometry.coordinates;
+    window.localStorage.setItem("coordinates", JSON.stringify(route));
     const geojson = {
       type: 'Feature',
       properties: {},
@@ -139,6 +140,92 @@ function Map(props) {
     }
   };
   
+
+  function routeMaker(route) {
+    map.current.flyTo({
+      center: route[1],
+      zoom: 8
+    })
+    console.log(route[0])
+    if(route.length === 1)  {
+      return console.log("You arrived at your destination")
+    }
+    route.shift();
+    const geojson = {
+      type: 'Feature',
+      properties: {},
+      geometry: {
+        type: 'LineString',
+        coordinates: route
+      }
+    };
+    if (map.current.getSource('route')) {
+      map.current.getSource('route').setData(geojson);
+
+    } else {
+
+      map.current.addLayer({
+        id: 'route',
+        type: 'line',
+        source: {
+          type: 'geojson',
+          data: geojson
+        },
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#3887be',
+          'line-width': 5,
+          'line-opacity': 0.75
+        }
+      })
+      }
+      const newCoord = {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: route[0] // icon position [lng, lat]
+        }
+      }
+    if (map.current.getSource('dot-point')) {
+      map.current.getSource('dot-point').setData(newCoord);
+      } else {
+        map.current.addSource('dot-point', {
+          'type': 'geojson',
+          'data': {
+            'type': 'FeatureCollection',
+            'features': [
+              {
+                'type': 'Feature',
+                'geometry': {
+                  'type': 'Point',
+                  'coordinates': route[0] // icon position [lng, lat]
+                }
+              }
+            ]
+          }
+          });
+          map.current.addLayer({
+            'id': 'layer-with-pulsing-dot',
+            'type': 'symbol',
+            'source': 'dot-point',
+            'layout': {
+            'icon-image': 'pulsing-dot'
+            }
+            });
+          }
+  }
+  let route = JSON.parse(window.localStorage.coordinates);
+  let go;
+  function routeMakerRunner() {
+     go = setInterval(() => routeMaker(route),1000);
+    }
+    
+    function routeMakerStopper() {     
+      clearInterval(go);
+  }
   useEffect(() => {
     
     map.current.on('load', () => {
@@ -149,16 +236,16 @@ function Map(props) {
       map.current.addSource('dot-point', {
         'type': 'geojson',
         'data': {
-        'type': 'FeatureCollection',
-        'features': [
-        {
-        'type': 'Feature',
-        'geometry': {
-        'type': 'Point',
-        'coordinates': start // icon position [lng, lat]
-        }
-        }
-        ]
+          'type': 'FeatureCollection',
+          'features': [
+            {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Point',
+                'coordinates': start // icon position [lng, lat]
+              }
+            }
+          ]
         }
         });
         map.current.addLayer({
@@ -169,32 +256,7 @@ function Map(props) {
           'icon-image': 'pulsing-dot'
           }
           });
-      // Add starting point to the map
-      map.current.addLayer({
-        id: 'point',
-        type: 'circle',
-        source: {
-          type: 'geojson',
-          data: {
-            type: 'FeatureCollection',
-            features: [
-              {
-                type: 'Feature',
-                properties: {},
-                geometry: {
-                  type: 'Point',
-                  coordinates: start
-                }
-              }
-            ]
-          }
-        },
-        paint: {
-          'circle-radius': 10,
-          'circle-color': '#3887be'
-        }
-      });
-
+      
       const end = {
         type: 'FeatureCollection',
         features: [
@@ -237,10 +299,13 @@ function Map(props) {
         });
       }
     }); 
+
+  
+    map.current.on('click', routeMakerRunner)
+    map.current.on('drag', routeMakerStopper)
   },[])
   
   return (
-    
       <div ref={mapContainer} className="map-container"></div>
   )
 }
