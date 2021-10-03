@@ -28,13 +28,13 @@ function Initializer() {
       console.warn(`ERROR(${err.code}): ${err.message}`);
     }
     useEffect(() => {
-      
-      
+      const coordinates = JSON.parse(window.localStorage.coordinates);
       navigator.geolocation.getCurrentPosition(success, error, options)
         
         axios.get(`/tripTracker/${destination}`)
         .then(res => setEnd(res.data))
         .catch(err => console.log(err))
+        
     },[])
     if (start.length === 0) return <div>Getting Route from your location to ${destination}</div>
   return <div><Map start={start} lng={lng} lat={lat} zoom={zoom} endPoint={end} /></div>
