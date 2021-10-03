@@ -18,10 +18,6 @@ export default function MyTrips(props) {
        
   },[user_id, setMyTrips]);
   
-  
-  
-  console.log('my trips', props.myTrips);
-
   const trip =  props.myTrips.map((trip) => {
     return(
       <MyTripsListItem
@@ -35,6 +31,7 @@ export default function MyTrips(props) {
         pass_id = {trip.pass_id}
         trip_id = {trip.trip_id}
         cancelBooking = {(event)=>props.cancelBooking(trip.pass_id, trip.trip_id)}
+        contacting = {(event)=>props.contacting(trip.name)}
       />)
   })
 

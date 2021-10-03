@@ -17,6 +17,12 @@ export default function MyTripsListItem(props) {
     setCancel(false);
   }
 
+  const contacting = function (name) {
+    props.contacting(name)
+  }
+
+
+
   if (cancel) {
     return (
     <div className='border border-dark mytripslistitem'>  
@@ -46,6 +52,9 @@ export default function MyTripsListItem(props) {
         <h6 >{props.origin} to {props.destination}</h6>
         <h6 ><i className="far fa-calendar-alt"></i> {props.departure} </h6>
         <h6 ><i className="fas fa-coins"></i> {`$${props.price}`}</h6>
+        <form onClick = {contacting}>
+          <button type="button"><i className="fas fa-comments fa-2x fas-purple"></i></button>
+        </form>
       </div>
       <div>
         <form onClick = {cancelling}>

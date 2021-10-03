@@ -24,6 +24,7 @@ function App() {
   const [searchTrip, setSearchTrip] = useState([]);
   const [user, setUser] = useState([]);
   const [myTrips, setMyTrips] = useState([]);
+  const [messageTo, setMesageTo] = useState("");
   let history = useHistory();
   
   const handleCookies = (data) => {
@@ -106,7 +107,14 @@ function App() {
         history.push("/mytrips");  
       })   
   }
-  
+
+
+  const contacting = function (name) {
+    console.log(`I am contacting ${name}`);
+    setMesageTo(name);  
+    history.push("/chats")
+  }
+
   const searchMyTrips = function () {
     console.log('xyz')
   }
@@ -149,7 +157,7 @@ function App() {
             <Main handleSearch = {handleSearch}/>
           </Route>
           <Route path="/chats">
-            <Chats name={"James"}/>
+            <Chats messageTo={messageTo}/>
           </Route>
           <Route path="/profile">
             <Profile user={user} />
@@ -167,7 +175,7 @@ function App() {
             <Request />
           </Route>
           <Route path="/mytrips">
-            <MyTrips  myTrips = {myTrips} setMyTrips = {setMyTrips} cancelBooking ={cancelBooking} userId = {cookies.user_id}/>
+            <MyTrips  myTrips = {myTrips} setMyTrips = {setMyTrips} cancelBooking ={cancelBooking} userId = {cookies.user_id} contacting = {contacting}/>
           </Route>
           <Route path="/tripTracker">
             <Initializer />
