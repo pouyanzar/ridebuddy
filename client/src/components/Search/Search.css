@@ -3,3 +3,7 @@
   border-style: solid 1px black;
   margin-bottom: 13vh;
 }
+
+.search-main img{
+  object-fit: cover;
+}
