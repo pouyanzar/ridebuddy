@@ -5,9 +5,9 @@ import { ChatEngine, getOrCreateChat } from 'react-chat-engine'
 
 const DirectChatPage = (props) => {
 	const [username, setUsername] = useState(props.messageTo)
-
-	console.log(props.messageTo)
 	
+	console.log('userName', username);
+
 	function createDirectChat(creds) {
 		getOrCreateChat(
 			creds,
@@ -17,19 +17,25 @@ const DirectChatPage = (props) => {
 	}
 
 	function renderChatForm(creds) {
-		return (
-			<div>
-				<input 
-					placeholder='Username' 
-					value={username} 
-					onChange={(e) => setUsername(e.target.value)} 
-				/>
-				<button onClick={() => createDirectChat(creds)}>
-					Create
-				</button>
-			</div>
-		)
+		console.log(creds,'creds');
+		createDirectChat(creds)
 	}
+
+
+	// function renderChatForm(creds) {
+	// 	return (
+	// 		<div>
+	// 			<input 
+	// 				placeholder='Username' 
+	// 				value={username} 
+	// 				onChange={(e) => setUsername(e.target.value)} 
+	// 			/>
+	// 			<button onClick={() => createDirectChat(creds)}>
+	// 				Create
+	// 			</button>
+	// 		</div>
+	// 	)
+	// }
 
 	return (
 		<ChatEngine
