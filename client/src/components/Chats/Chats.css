@@ -2,3 +2,42 @@
   background-color: white;
   margin-top: 12vh;
 }
+
+.ce-chat-title-text {
+  color: black;
+}
+
+.ce-chat-subtitle-text {
+  color: black;
+}
+
+.ce-my-message-bubble {
+  background-color: rgba(217, 255, 0, 0.836) !important;
+  color: black !important;
+}
+
+.ce-their-message-bubble {
+  background-color:rgb(180, 179, 179) !important;
+}
+
+#ce-send-message-button {
+  background-color: rgba(217, 255, 0, 0.836) !important;
+  color: black;
+}
+
+.anticon {
+  color: black !important;
+}
+
+.ce-chat-unread-dot {
+  background-color: rgba(217, 255, 0, 0.836) !important;
+}
+
+.ce-chat-form-container {
+  color: black;
+  background-color: black;
+}
+
+#new-chat-plus-button {
+  background-color: rgba(217, 255, 0, 0.836) !important;
+}
