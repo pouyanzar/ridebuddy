@@ -12,6 +12,7 @@ export default function Main(props) {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    console.log(origin, destination)
     props.handleSearch(origin, destination);
   }
 
@@ -20,9 +21,26 @@ export default function Main(props) {
       <div className="main">
         <form onSubmit={handleSubmit}>
           <div className= "form">
-            <div className="field"><input  className= "input" type="text" placeholder="Origin" onChange={e => setOrigin(e.target.value)}/></div>
+            {/* <div className="field"><input  className= "input" type="text" placeholder="Origin" onChange={e => setOrigin(e.target.value)}/></div> */}
+            <div className="field">
+              <input className="input" list="cities"  id="origin" name="origin" onChange={e => setOrigin(e.target.value)} placeholder="Origin"/>
+                <datalist id="cities">
+                  <option value="Montreal"></option>
+                  <option value="Ottawa"></option>
+                  <option value="Toronto"></option>
+                </datalist>
+            </div>
+            
             <div>
-            <div className="field"><input  className= "input" type="text" placeholder="Destination" onChange={e => setDestination(e.target.value)}/></div>
+            {/* <div className="field"><input  className= "input" type="text" placeholder="Destination" onChange={e => setDestination(e.target.value)}/></div> */}
+              <div className="field">
+                <input className="input" list="cities" id="destination" name="destination`" onChange={e => setDestination(e.target.value)} placeholder="Destination"/>
+                  <datalist id="cities">
+                    <option value="Montreal"></option>
+                    <option value="Ottawa"></option>
+                    <option value="Toronto"></option>
+                  </datalist>
+              </div>
             </div>
           </div>
           <div className="search-button">
