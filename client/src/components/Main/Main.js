@@ -12,7 +12,6 @@ export default function Main(props) {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log(origin, destination)
     props.handleSearch(origin, destination);
   }
 

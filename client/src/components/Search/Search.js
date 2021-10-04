@@ -35,6 +35,13 @@ export default function Search(props) {
 
   console.log('refresh searchTrip', props.searchTrip);
 
+  if (book.length === 0) {
+    return (
+    <div className="search-main p-4">
+      Oops! There is no trip available for the selected route!
+    </div> 
+    )
+  }
   const trip =  book.map((trip) => {
     return(
       <TripListItem 
