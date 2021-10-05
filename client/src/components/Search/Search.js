@@ -30,7 +30,6 @@ export default function Search(props) {
   useEffect(() => {
     props.handleSearch(props.origin, props.destination);
     setBook(props.searchTrip);
-    console.log('Use effect running')
   },[]);
 
   console.log('refresh searchTrip', props.searchTrip);
@@ -43,6 +42,7 @@ export default function Search(props) {
         seats= {trip.seats}
         avatar = {trip.avatar}
         price={trip.price}
+        pic={trip.pic}
         departure = {trip.departure} 
         booking = {(event)=>booking(trip.id)}
       />)

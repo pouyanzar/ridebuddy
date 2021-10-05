@@ -21,7 +21,8 @@ export default function MyTripsListItem(props) {
     props.contacting(name)
   }
 
-
+  var d = new Date(props.departure);
+  
 
   if (cancel) {
     return (
@@ -50,7 +51,7 @@ export default function MyTripsListItem(props) {
       </div>
       <div>  
         <h6 >{props.origin} to {props.destination}</h6>
-        <h6 ><i className="far fa-calendar-alt"></i> {props.departure} </h6>
+        <h6 ><i className="far fa-calendar-alt"></i> {d.toLocaleString('en-US', { timeZone: 'America/New_York' })} </h6>
         <h6 ><i className="fas fa-coins"></i> {`$${props.price}`}</h6>
         <form onClick = {contacting}>
           <button type="button"><i className="fas fa-comments fa-2x fas-purple"></i></button>

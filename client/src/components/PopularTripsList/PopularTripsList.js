@@ -4,7 +4,6 @@ import { Button } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
-import PopularTripsList from '../PopularTripsList/PopularTripsList';
 import SwiperCore, {
   Navigation
 } from 'swiper';
@@ -19,24 +18,16 @@ const myTrips = [
   {'id': 90, 'rider': 'Saif', 'seats': 3,'price': 50, 'departure': '14-Dec-2021'},
 ]
 
-export default function PopularTrips(props) {
+export default function PopularTripsList(props) {
 
-  const popularTrip =  myTrips.map((trip) => {
-    return(
-      <Swiper navigation={true} className="mySwiper border border-dark">
+  return(  
+
+    <Swiper navigation={true} className="mySwiper border border-dark">
     
-      <PopularTripsList
-        key={trip.pass_id} 
-        name = {trip.rider}
-      />
+      <div className="popularlistborder">
+        <SwiperSlide>{props.name}</SwiperSlide>
+      </div>
   
     </Swiper>
-    )
-  })
-
-  return( 
-    <div >
-      {popularTrip} 
-    </div>  
   )
 }
