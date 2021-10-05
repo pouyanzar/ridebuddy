@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const {Pool} = require('pg');
 const dbParams = require('./lib/db.js');
-const cors = require("cors");
 
 //connet to db
 const db = new Pool(dbParams);
@@ -23,7 +22,6 @@ const requestRoute = require('./routes/requests');
 const searchRoute = require('./routes/search');
 const passengerRoute = require('./routes/passengers');
 const tripTrackerRoute = require('./routes/tripTracker');
-const paymentRoute = require('./routes/payment');
 
 const app = express();
 
@@ -32,7 +30,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
 
 // mount routes
 app.use('/', indexRouter);
@@ -45,6 +42,5 @@ app.use('/requests', requestRoute(db));
 app.use('/search', searchRoute(db));
 app.use('/passengers', passengerRoute(db));
 app.use('/tripTracker', tripTrackerRoute(db));
-app.use('/stripe', paymentRoute(db));
 
 module.exports = app;
