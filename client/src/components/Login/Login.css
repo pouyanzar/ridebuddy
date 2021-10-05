@@ -44,4 +44,6 @@
   background-color: rgba(217, 255, 0, 0.836) !important;
   color:  black !important;
   border: black !important;
+  width: 80px !important;
+  margin: 10px;
 }
