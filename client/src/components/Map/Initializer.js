@@ -3,14 +3,14 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
-function Initializer() {
+function Initializer(props) {
     mapboxgl.accessToken = 'pk.eyJ1IjoicG91eWFuMTIxIiwiYSI6ImNrdTJrNTI0ZjEya2EyeHA3YnlxbHNnaHgifQ.gSLfFKuoSfOkamoK8DKl2w';
     const [start, setStart] = useState([]);
     const [lng, setLng] = useState(-70.9);
     const [lat, setLat] = useState(42.35);
     const [zoom, setZoom] = useState(9);
     const [end, setEnd] = useState([])
-    let destination = "Montreal";
+    let destination = props.destination;
     const options = {
       enableHighAccuracy: true,
       timeout: 5000,

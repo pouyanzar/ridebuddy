@@ -23,6 +23,9 @@ export default function MyTripsListItem(props) {
 
   var d = new Date(props.departure);
   
+  const tripTracking = function (destination){
+    props.tripTracking(destination)
+  }
 
   if (cancel) {
     return (
@@ -60,6 +63,11 @@ export default function MyTripsListItem(props) {
       <div>
         <form onClick = {cancelling}>
           <button type="button" className="btn btn-danger cancel-now" data-toggle="button"> Cancel Booking</button>
+        </form>
+      </div>
+      <div>
+        <form onClick = {tripTracking}>
+          <button type="button" className="btn btn-danger cancel-now" data-toggle="button">Live Tracking</button>
         </form>
       </div>
     </div>

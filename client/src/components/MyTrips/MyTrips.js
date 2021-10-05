@@ -32,6 +32,7 @@ export default function MyTrips(props) {
         trip_id = {trip.trip_id}
         cancelBooking = {(event)=>props.cancelBooking(trip.pass_id, trip.trip_id)}
         contacting = {(event)=>props.contacting(trip.name)}
+        tripTracking = {(event) => props.tripTracking(trip.destination)}
       />)
   })
 

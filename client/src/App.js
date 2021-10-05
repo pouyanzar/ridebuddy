@@ -119,6 +119,11 @@ function App() {
     console.log('xyz')
   }
 
+  const tripTracking = function (destination) {
+    setDestination(destination);
+    history.push('/tripTracker')
+  }
+
   useEffect(() => {
     const user_id = cookies.user_id;
     return axios.get(`/trips/${user_id}`)
@@ -175,10 +180,10 @@ function App() {
             <Request />
           </Route>
           <Route path="/mytrips">
-            <MyTrips  myTrips = {myTrips} setMyTrips = {setMyTrips} cancelBooking ={cancelBooking} userId = {cookies.user_id} contacting = {contacting}/>
+            <MyTrips  myTrips = {myTrips} setMyTrips = {setMyTrips} cancelBooking ={cancelBooking} userId = {cookies.user_id} contacting = {contacting} tripTracking={tripTracking}/>
           </Route>
           <Route path="/tripTracker">
-            <Initializer />
+            <Initializer destination={destination} />
           </Route>
           <Route path="/payment">
             <StripeContainer />
