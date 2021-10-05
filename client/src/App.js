@@ -14,8 +14,8 @@ import Trip from './components/Posts/Trip';
 import Request from './components/Posts/Request';
 import MyTrips from './components/MyTrips/MyTrips';
 import axios from 'axios';
-import Map from './components/Map/Map';
 import Initializer from './components/Map/Initializer';
+import StripeContainer from './components/Stripe/StripeContainer';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies();
@@ -179,6 +179,9 @@ function App() {
           </Route>
           <Route path="/tripTracker">
             <Initializer />
+          </Route>
+          <Route path="/payment">
+            <StripeContainer />
           </Route>
         </Switch>
         <div><Footer /></div>
