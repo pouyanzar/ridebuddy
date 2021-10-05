@@ -11,12 +11,44 @@
 .book-now {
   padding-left: 3px;
   padding-right: 3px;
+  max-width: fit-content;
+  background-color: rgba(217, 255, 0, 0.836) !important;
+  color: black;
 }
 
-.driver-pic{
+.btn-success {
+  border-color: black !important;
+}
+
+.car-pic{
   max-height: 150px;
   max-width: 150px;
   width: 75px;
   height: 75px;
   border-radius: 50%;
+  
 }
+
+.driver-pic{
+  max-height: 150px;
+  max-width: 150px;
+  width: 30px;
+  height: 30px; 
+}
+
+.driver-name {
+  width: 75px;
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+}
+
+.book-button {
+  
+ 
+}
+
+/* .trip-detail{
+  padding-left: 5px;
+  padding-right: 5px;
+} */
