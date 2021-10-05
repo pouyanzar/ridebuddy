@@ -1,5 +1,4 @@
 import {useState} from 'react';
-import PointCreator from './helpers/PointCreator';
 import axios from 'axios';
 import './Trip.css'
 export default function Trip(props) {

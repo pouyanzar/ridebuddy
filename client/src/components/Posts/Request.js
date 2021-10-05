@@ -1,6 +1,4 @@
 import {useState} from 'react';
-import PointCreator from './helpers/PointCreator';
-import { submitHandler } from './helpers/helperFunctions';
 import './Request.css'
 import axios from 'axios';
 export default function Trip(props) {
