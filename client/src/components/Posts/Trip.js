@@ -86,6 +86,7 @@ export default function Trip(props) {
           onChange={originChangeHandler} 
           className="form-control" 
           name="origin"
+          placeholder="Select an origin"
           required
         >
           <option value="montreal">Montreal</option>
@@ -97,6 +98,7 @@ export default function Trip(props) {
           onChange={destinationChangeHandler} 
           className="form-control" 
           name="destination"
+          placeholder="Select a destination"
           required
         >
           <option value="montreal">Montreal</option>
