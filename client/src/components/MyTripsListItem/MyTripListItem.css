@@ -11,4 +11,24 @@
 .cancel-now {
   padding-left: 1px;
   padding-right: 1px;
+  margin-bottom: 10px;
+}
+
+.mytrips-details{
+  text-align: center;
+  padding: 2px;
+}
+
+.driver-pic-mytrips {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+}
+
+.driver-mytrips {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

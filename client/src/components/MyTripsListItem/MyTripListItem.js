@@ -48,11 +48,11 @@ export default function MyTripsListItem(props) {
   return (
    
     <div className='border border-dark mytripslistitem'>
-      <div className='driver'>
-        <img className='driver-pic' src={props.avatar} alt=""></img>
+      <div className='driver-mytrips'>
+        <img className='driver-pic-mytrips' src={props.avatar} alt=""></img>
         <h5 >{props.name}</h5>
       </div>
-      <div>  
+      <div className="mytrips-details">  
         <h6 >{props.origin} to {props.destination}</h6>
         <h6 ><i className="far fa-calendar-alt"></i> {d.toLocaleString('en-US', { timeZone: 'America/New_York' })} </h6>
         <h6 ><i className="fas fa-coins"></i> {`$${props.price}`}</h6>
@@ -61,14 +61,17 @@ export default function MyTripsListItem(props) {
         </form>
       </div>
       <div>
-        <form onClick = {cancelling}>
-          <button type="button" className="btn btn-danger cancel-now" data-toggle="button"> Cancel Booking</button>
-        </form>
-      </div>
-      <div>
-        <form onClick = {tripTracking}>
-          <button type="button" className="btn btn-danger cancel-now" data-toggle="button">Live Tracking</button>
-        </form>
+        <div>
+          <form onClick = {cancelling}>
+            <button type="button" className="btn btn-danger cancel-now" data-toggle="button"> Cancel Booking</button>
+          </form>
+        </div>
+  
+        <div>
+         <form onClick = {tripTracking}>
+            <button type="button" className="btn btn-success cancel-now" data-toggle="button">Live Tracking</button>
+          </form>
+        </div>
       </div>
     </div>
   );
