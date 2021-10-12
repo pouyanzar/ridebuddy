@@ -21,7 +21,7 @@
     INSERT INTO trips (user_id, origin, destination, departure,price,available_seats, available_luggages,make, model, year, color,plate,pic)
     VALUES (6, 'Toronto', 'Montreal' , '2021-11-26 18:15:00', 35, 2, 3, 'Mercedez', 'G-Wagon', 2021, 'Red', 'Z6P 1L9', 'https://media.ed.edmunds-media.com/mercedes-benz/g-class/2019/oem/2019_mercedes-benz_g-class_4dr-suv_amg-g-63_fq_oem_1_1600.jpg');
     INSERT INTO trips (user_id, origin, destination, departure,price,available_seats, available_luggages,make, model, year, color,plate,pic)
-    VALUES (4, 'Toronto', 'Montreal' , '2021-11-16 20:00:00', 40, 5, 5, 'Dodge', 'Caravan', 2013, 'Grey', 'J6P 1P5', 'https://picolio.auto123.com/16photo/dodge/2016-dodge-grand-caravan-rt.png');
+    VALUES (8, 'Toronto', 'Montreal' , '2021-11-16 20:00:00', 40, 5, 5, 'Dodge', 'Caravan', 2013, 'Grey', 'J6P 1P5', 'https://picolio.auto123.com/16photo/dodge/2016-dodge-grand-caravan-rt.png');
     INSERT INTO trips (user_id, origin, destination, departure,price,available_seats, available_luggages,make, model, year, color,plate,pic)
     VALUES (9, 'Toronto', 'Montreal' , '2021-11-28 20:00:00', 45, 5, 2, 'Ford', 'Transit', 2020, 'Black', 'H6Z 3L2', 'https://media.ed.edmunds-media.com/ford/transit-passenger-van/2020/oem/2020_ford_transit-passenger-van_passenger-van_350-hd-xlt-high-roof_fq_oem_1_815.jpg');
     INSERT INTO trips (user_id, origin, destination, departure,price,available_seats, available_luggages,make, model, year, color,plate,pic)

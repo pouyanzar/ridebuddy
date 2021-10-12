@@ -52,7 +52,7 @@ export default function MyTripsListItem(props) {
         <img className='driver-pic' src={props.avatar} alt=""></img>
         <h5>{props.name}</h5>
       </div>
-      <div>  
+      <div className="mytrips-details">  
         <h6 >{props.origin} to {props.destination}</h6>
         <h6 ><i className="far fa-calendar-alt"></i> {d.toLocaleString('en-US', { timeZone: 'America/New_York' })} </h6>
         <h6 ><i className="fas fa-coins"></i> {`$${props.price}`}</h6>

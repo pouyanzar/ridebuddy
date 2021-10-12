@@ -1,3 +1,34 @@
-.popularlistborder {
+
+
+.swiper-slider {
   margin: 10px !important;
+  border-radius: 10px;
+  background-color: grey !important
+}
+
+.city-pic{
+  max-width: 200px;
+  max-height: 125px;
+}
+
+.popularTrips{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.swiper-button-next{
+  color: grey;
+}
+
+.swiper-button-prev{
+  color:grey;
+}
+
+.city-text{
+  color: rgba(217, 255, 0, 0.836);
+  background-color: black;
+}
+
+.city-text-pic{
+  background-color: black;
 }
