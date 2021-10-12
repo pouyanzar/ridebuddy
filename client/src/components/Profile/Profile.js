@@ -19,7 +19,7 @@ export default function Profile(props) {
       </div>
       <div className="border border-dark rounded profile-info">
         <div className="profile-name-edit">
-          <div><h1>{user.user.name}</h1></div>
+          <div><h4>{user.user.name}</h4></div>
           <div><i className="fas fa-user-edit"></i></div> 
         </div>
         

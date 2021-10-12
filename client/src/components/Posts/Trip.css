@@ -2,8 +2,13 @@
   margin: 5rem 1rem;
 }
 
+.trip form {
+  margin-bottom: 12vh;
+}
+
 .trip form .price {
   margin: 0 0.5rem;
+  width: 80vw;
 }
 
 .trip form h2 {
@@ -16,5 +21,9 @@
 
 .trip form div {
   text-align: center;
+}
+
+.vehicle-pic-btn {
+  display: none;
 }
 /*# sourceMappingURL=Trip.css.map */

@@ -133,9 +133,9 @@ function App() {
   },[cookies]);
 
  
-  useEffect(() => {
-    console.log('my trips', setMyTrips);
-  },[searchTrip]);
+  // useEffect(() => {
+  //   console.log('my trips', setMyTrips);
+  // },[searchTrip]);
  
   useEffect(() => {
    
@@ -154,13 +154,13 @@ function App() {
   }
 
   return (
-      <div>
-        <div><Navbar user={user} /></div>
+      <div className="App">
+        <Navbar user={user} />
         <Switch>
           <Route exact path="/">
             <Main handleSearch = {handleSearch}/>
           </Route>
-          <Route path="/chats">
+          <Route user={user} path="/chats">
             <Chats messageTo={messageTo}/>
           </Route>
           <Route path="/profile">
@@ -185,7 +185,7 @@ function App() {
             <Initializer destination={destination} />
           </Route>
         </Switch>
-        <div><Footer /></div>
+        <Footer />
       </div>
 
   );

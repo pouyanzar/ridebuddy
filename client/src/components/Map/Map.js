@@ -1,6 +1,6 @@
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import {useEffect, useRef } from 'react';
+import {useState, useEffect, useRef } from 'react';
 import './Map.css';
 
 function Map(props) {
@@ -144,11 +144,17 @@ function Map(props) {
   function routeMaker(route) {
     map.current.flyTo({
       center: route[1],
-      zoom: 8
+      zoom: 9
     })
     console.log(route[0])
+    
+    if(route.length < 10) {
+      map.current.setZoom(15, {duration:5000});
+      map.current.setCenter(route[1])
+
+    }
     if(route.length === 1)  {
-      return console.log("You arrived at your destination")
+      return alert("You arrived at your destination")
     }
     route.shift();
     const geojson = {

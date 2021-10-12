@@ -50,7 +50,7 @@ export default function MyTripsListItem(props) {
     <div className='border border-dark mytripslistitem'>
       <div className='driver'>
         <img className='driver-pic' src={props.avatar} alt=""></img>
-        <h5 >{props.name}</h5>
+        <h5>{props.name}</h5>
       </div>
       <div>  
         <h6 >{props.origin} to {props.destination}</h6>
@@ -60,15 +60,17 @@ export default function MyTripsListItem(props) {
           <button type="button"><i className="fas fa-comments fa-2x fas-purple"></i></button>
         </form>
       </div>
-      <div>
-        <form onClick = {cancelling}>
-          <button type="button" className="btn btn-danger cancel-now" data-toggle="button"> Cancel Booking</button>
-        </form>
-      </div>
-      <div>
-        <form onClick = {tripTracking}>
-          <button type="button" className="btn btn-danger cancel-now" data-toggle="button">Live Tracking</button>
-        </form>
+      <div className="button-holder">
+        <div>
+          <form onClick = {cancelling}>
+            <button type="button" className="btn btn-danger cancel-now" data-toggle="button"> Cancel Booking</button>
+          </form>
+        </div>
+        <div>
+          <form onClick = {tripTracking}>
+            <button type="button" className="btn btn-success cancel-now  mt-2" data-toggle="button">Live Tracking</button>
+          </form>
+        </div>
       </div>
     </div>
   );

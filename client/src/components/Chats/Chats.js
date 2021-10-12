@@ -21,7 +21,6 @@ const DirectChatPage = (props) => {
 		createDirectChat(creds)
 	}
 
-
 	// function renderChatForm(creds) {
 	// 	return (
 	// 		<div>
@@ -38,13 +37,16 @@ const DirectChatPage = (props) => {
 	// }
 
 	return (
-		<ChatEngine
-		height='90vh'
-    projectID='ffeaa6c1-7930-43c5-b22c-e1450be2b51d'
-    userName='Saif Ali'
-    userSecret='ridebuddy'
-		renderNewChatForm={(creds) => renderChatForm(creds)}
-		/>
+		<div className="chat">
+			<ChatEngine
+				height='90vh'
+				projectID='ffeaa6c1-7930-43c5-b22c-e1450be2b51d'
+				userName='Saif Ali'
+				userSecret='ridebuddy'
+				renderNewChatForm={(creds) => renderChatForm(creds)}
+			/>		
+		</div>
+			
 	)
 }
 

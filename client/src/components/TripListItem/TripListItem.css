@@ -29,11 +29,16 @@
   
 }
 
+
+
 .driver-pic{
   max-height: 150px;
   max-width: 150px;
   width: 30px;
-  height: 30px; 
+  height: 30px;
+  border-radius: 100%; 
+  object-fit: cover;
+  margin: .25rem 0;
 }
 
 .driver-name {
@@ -41,10 +46,13 @@
   text-align: center;
   margin-top: 10px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.book-button {
-  
+.book-button button{
+ margin-top: 1rem;
+ font-size: .75rem; 
  
 }
 
@@ -52,3 +60,6 @@
   padding-left: 5px;
   padding-right: 5px;
 } */
+h6 {
+  font-size: .75rem;
+}

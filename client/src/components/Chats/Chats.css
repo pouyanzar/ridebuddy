@@ -1,8 +1,10 @@
 .chat-main {
   background-color: white;
-  margin-top: 12vh;
+  /* margin-top: 12vh; */
 }
-
+.chat{
+  height: 90vh;
+}
 .ce-chat-title-text {
   color: black;
 }

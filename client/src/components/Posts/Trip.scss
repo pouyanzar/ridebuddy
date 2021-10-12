@@ -1,8 +1,10 @@
 .trip {
   margin: 5rem 1rem;
   & form {
+    margin-bottom: 12vh;
     & .price{
       margin: 0 0.5rem;
+      width: 80vw;
     }
     & h2{
       text-align: center;
@@ -14,4 +16,8 @@
       text-align: center;
     }
   }
+}
+
+.vehicle-pic-btn {
+  display:none;
 }

@@ -13,7 +13,7 @@ export default function Posts() {
             <img src="https://i.ibb.co/Gn1pxbw/driverpassenger-modified.png" alt="rider"></img>
           </div>
           <div className="post-detail">
-          <h3>Add a post</h3>
+          <h4>Add a post</h4>
           <h6>You’re driving and have empty seats</h6>
           </div>
           <div className="arrow-circle-right">
@@ -27,7 +27,7 @@ export default function Posts() {
             <img src="https://i.ibb.co/Xb29vLd/driverpassenger-modified-1.png" alt="passenger"></img>
           </div>
           <div className="post-detail">
-            <h3>Post a request</h3>
+            <h4>Post a request</h4>
             <h6>You’re looking for a ride</h6>
           </div>
           <div className="arrow-circle-right">

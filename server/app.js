@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const {Pool} = require('pg');
 const dbParams = require('./lib/db.js');
-
+const cors = require('cors');
 //connet to db
 const db = new Pool(dbParams);
 
@@ -24,7 +24,7 @@ const passengerRoute = require('./routes/passengers');
 const tripTrackerRoute = require('./routes/tripTracker');
 
 const app = express();
-
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

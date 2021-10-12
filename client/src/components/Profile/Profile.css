@@ -10,11 +10,17 @@
 .profile-picture {
   object-fit:cover;
   width: 100vw;
-  height: 50vh;
+  height: 46vh;
 }
 
 .profile-info {
   margin: 10px;
   padding: 10px;
+  
 }
+
+.profile-info h5 {
+  font-size: 1rem;
+}
+
 

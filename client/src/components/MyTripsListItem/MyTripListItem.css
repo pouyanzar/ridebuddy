@@ -4,11 +4,32 @@
   margin: 10px;
   border-radius: 10px;  
   display: flex;
-  justify-content: space-around;
-  
+  align-items: center;
+  text-align: center;
 }
 
 .cancel-now {
   padding-left: 1px;
   padding-right: 1px;
+}
+
+.button-holder {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-holder button {
+  font-size: .75rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+h6 {
+  font-weight: bold; 
+}
+
+.driver-pic {
+  width: 75px;
+  height: 75px;
 }

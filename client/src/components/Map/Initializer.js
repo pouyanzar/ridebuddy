@@ -10,7 +10,9 @@ function Initializer(props) {
     const [lat, setLat] = useState(42.35);
     const [zoom, setZoom] = useState(9);
     const [end, setEnd] = useState([])
-    let destination = props.destination;
+    // let destination = props.destination;
+    let destination = "Montreal";
+
     const options = {
       enableHighAccuracy: true,
       timeout: 5000,
@@ -28,9 +30,9 @@ function Initializer(props) {
       console.warn(`ERROR(${err.code}): ${err.message}`);
     }
     useEffect(() => {
-      const coordinates = JSON.parse(window.localStorage.coordinates);
-      navigator.geolocation.getCurrentPosition(success, error, options)
-        
+      
+        navigator.geolocation.getCurrentPosition(success, error, options)
+   
         axios.get(`/tripTracker/${destination}`)
         .then(res => setEnd(res.data))
         .catch(err => console.log(err))

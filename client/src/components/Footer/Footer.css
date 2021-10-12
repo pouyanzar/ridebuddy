@@ -9,7 +9,9 @@
 .footer-icon {
   display: flex;
   justify-content: space-around;
-  margin: 15px; 
+  align-items: center;
+  /* margin: 15px;  */
+  padding-top: .5rem;
 }
 
 .fas-purple {

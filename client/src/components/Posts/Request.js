@@ -46,7 +46,7 @@ export default function Trip(props) {
   }
   return (
     <div className="trip">
-      <h1>Let's post a request!</h1>
+      <h2>Let's post a request!</h2>
       <form onSubmit={submitHandler}>
         <label className="mt-2" htmlFor="origin">Origin</label>
         <select 
@@ -94,7 +94,7 @@ export default function Trip(props) {
         <textarea
           className='form-control'
           name='description'
-          placeholder='describe about yourself and/or your trip'
+          placeholder="Let's people know a little about you and/or your trip"
           onChange={descriptionChangeHandler}
           required
         >

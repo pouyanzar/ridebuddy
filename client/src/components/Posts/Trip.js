@@ -108,7 +108,8 @@ export default function Trip(props) {
         <input 
           name="price" 
           className="form-control-sm price" 
-          type="number" 
+          type="number"
+          value="0" 
           onChange={priceChangeHandler}
           required
         />$
@@ -185,11 +186,12 @@ export default function Trip(props) {
           onChange={plateChangeHandler} 
           required
         />
-        <label className="mt-2" htmlFor="pic">Vehicle Photo</label>
+        <label className="btn btn-light mt-2" htmlFor="pic">Add Vehicle Photo</label>
         <input 
+          id="pic"
           name="pic" 
           type="file" 
-          className="form-control"
+          className="form-control vehicle-pic-btn"
           placeholder="Enter your licence plate" 
           onChange={picChangeHandler} 
           required
