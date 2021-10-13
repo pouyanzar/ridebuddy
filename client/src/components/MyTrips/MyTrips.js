@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./MyTrips.css";
 import MyTripsListItem from '../MyTripsListItem/MyTripListItem';

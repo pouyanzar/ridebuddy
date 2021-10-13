@@ -105,7 +105,7 @@ function Map(props) {
     const json = await query.json();
     const data = json.routes[0];
     const route = data.geometry.coordinates;
-    window.localStorage.setItem("coordinates", JSON.stringify(route));
+    // window.localStorage.setItem("coordinates", JSON.stringify(route));
     const geojson = {
       type: 'Feature',
       properties: {},
@@ -146,7 +146,6 @@ function Map(props) {
       center: route[1],
       zoom: 9
     })
-    console.log(route[0])
     
     if(route.length < 10) {
       map.current.setZoom(15, {duration:5000});
@@ -154,8 +153,10 @@ function Map(props) {
 
     }
     if(route.length === 1)  {
+      routeMakerStopper();
       return alert("You arrived at your destination")
     }
+    
     route.shift();
     const geojson = {
       type: 'Feature',
@@ -207,7 +208,7 @@ function Map(props) {
                 'type': 'Feature',
                 'geometry': {
                   'type': 'Point',
-                  'coordinates': route[0] // icon position [lng, lat]
+                  'coordinates': navigator.geolocation.getCurrentPosition() // icon position [lng, lat]
                 }
               }
             ]
@@ -229,8 +230,8 @@ function Map(props) {
      go = setInterval(() => routeMaker(route),1000);
     }
     
-    function routeMakerStopper() {     
-      clearInterval(go);
+  function routeMakerStopper() {     
+    clearInterval(go);
   }
   useEffect(() => {
     
@@ -307,8 +308,8 @@ function Map(props) {
     }); 
 
   
-    map.current.on('click', routeMakerRunner)
-    map.current.on('drag', routeMakerStopper)
+    map.current.on('load', routeMakerRunner)
+    
   },[])
   
   return (
