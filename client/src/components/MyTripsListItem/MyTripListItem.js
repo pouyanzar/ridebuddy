@@ -68,7 +68,7 @@ export default function MyTripsListItem(props) {
         </div>
         <div>
           <form onClick = {tripTracking}>
-            <button type="button" className="btn btn-success cancel-now  mt-2" data-toggle="button">Live Tracking</button>
+            <button type="button" className="btn btn-success cancel-now" data-toggle="button">Live Tracking</button>
           </form>
         </div>
       </div>

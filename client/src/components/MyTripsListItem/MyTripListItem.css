@@ -9,9 +9,8 @@
 }
 
 .cancel-now {
-  padding-left: 1px;
-  padding-right: 1px;
-  margin-bottom: 10px;
+  padding: .5rem;
+  margin-top: 10px;
 }
 
 .button-holder {
@@ -51,4 +50,26 @@ h6 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+
+@media screen and (min-width: 1000px) {
+  .button-holder {
+    flex-direction: row;
+  } 
+  .button-holder div {
+    margin: 0 2rem;
+  }
+
+  .mytripslistitem {
+    width: 60%;
+    padding: 1rem;
+  } 
+  .mytripslistitem:first-child {
+    margin-top: 2rem;
+  }
+
+  .mytrips-details{
+    margin: auto;
+  }
 }

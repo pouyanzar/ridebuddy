@@ -1,7 +1,6 @@
 .navbar {
   display: flex;
   background-color: black;
-  height: 12vh;
   color: white;
   position: fixed;
   top: 0;
@@ -37,4 +36,29 @@
 
 .fa-2x {
   font-size: 1.5em;
+}
+
+@media screen and (min-width: 1000px) {
+  .navbar {
+    padding: 2rem;
+    align-items: center;
+  }
+
+  .profile-pic {
+    width: 64px;
+    height: 64px;
+  }
+  .profile > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+  .fa-2x {
+    font-size: 2.75em;
+  }
+  .profile-add{
+
+    align-items: center;
+  }
 }
