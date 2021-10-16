@@ -131,11 +131,6 @@ function App() {
       })
        
   },[cookies]);
-
- 
-  // useEffect(() => {
-  //   console.log('my trips', setMyTrips);
-  // },[searchTrip]);
  
   useEffect(() => {
    
@@ -187,7 +182,6 @@ function App() {
         </Switch>
         <Footer />
       </div>
-
   );
 }
 

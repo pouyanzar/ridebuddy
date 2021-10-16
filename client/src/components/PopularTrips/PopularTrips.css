@@ -9,6 +9,7 @@
 .city-pic{
   max-width: 200px;
   max-height: 125px;
+  object-fit: cover;
 }
 
 .popularTrips{
